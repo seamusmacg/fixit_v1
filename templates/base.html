@@ -24,6 +24,10 @@
     {% block extra_css %}
     {% endblock %}
 
+    {% block fontawesome %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    {% endblock%}
+
 
     {% block corejs %}
     <!-- Optional JavaScript -->
@@ -46,7 +50,73 @@
 </head>
 
 <body>
-    <header class="container-fluid fixed-top"></header>
+    <!-- Header -->
+    <header class="container-fluid fixed-top">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Delivery</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Departments
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Electrical</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Gardening</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Bathroom & Plumbing</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Tools</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a class="navbar-brand d-xl-none" href="#">
+                        FixIt.
+                    </a>
+
+                    <ul class="navbar-nav flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="modal" href="#modalSearch">
+                                <i class="fe fe-search"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item ml-lg-n4">
+                            <a class="nav-link" href="#">
+                                <i class="fe fe-user"></i>
+                            </a>
+                        </li>
+                        <li class="nav-item ml-lg-n4">
+                            <a class="nav-link" data-toggle="modal" href="#modalShoppingCart">
+                                <span data-cart-items="2">
+                                    <i class="fe fe-shopping-cart"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </nav>
+    </header>
 
     {% if messages %}
     <div class="message-container"></div>
