@@ -24,11 +24,6 @@
     {% block extra_css %}
     {% endblock %}
 
-    {% block fontawesome %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {% endblock%}
-
-
     {% block corejs %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -53,7 +48,7 @@
     <!-- Header -->
     <header class="container-fluid fixed-top">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-xl navbar-light bg-light">
             <div class="container">
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
@@ -93,25 +88,51 @@
                         FixIt.
                     </a>
 
+                    <!-- Navbar Icons
                     <ul class="navbar-nav flex-row">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" href="#modalSearch">
-                                <i class="fe fe-search"></i>
+                            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">
+                                <i class="bi bi-search"></i>
                             </a>
+                            <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Search Products</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <form class="form-inline my-2 my-lg-0" method="GET">
+                                            <div class="modal-body">
+                                                <input class="form-control mr-sm-2" type="search" name="query"
+                                                    placeholder="Search a product" aria-label="Search">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary"
+                                                    type="submit">Search</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </li>
                         <li class="nav-item ml-lg-n4">
                             <a class="nav-link" href="#">
-                                <i class="fe fe-user"></i>
+                                <i class="bi bi-person-circle"></i>
                             </a>
                         </li>
                         <li class="nav-item ml-lg-n4">
                             <a class="nav-link" data-toggle="modal" href="#modalShoppingCart">
                                 <span data-cart-items="2">
-                                    <i class="fe fe-shopping-cart"></i>
+                                    <i class="bi bi-cart"></i>
                                 </span>
                             </a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
 
