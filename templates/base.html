@@ -96,31 +96,43 @@
                     </li>
                 </ul>
 
-                <ul class="navbar-nav ml-auto">
+                <ul class="navbar-nav ml-auto d-inline-flex p-2">
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="account-details" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link" href="#" id="account-details" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <i class="bi bi-person-circle"></i>
-                                <p>Account</p>
+                                <p class="d-none d-lg-block">Account</p>
                             </div>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="account-details">
+                            {% if request.user.is_authenticated %}
+                            {% request.user.is_superuser %}
                             <a class="dropdown-item" href="#">Manage Products</a>
                             <div class="dropdown-divider"></div>
+                            {% endif %}
                             <a class="dropdown-item" href="#">Profile</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
                             <div class="dropdown-divider"></div>
+                            {% else %}
                             <a class="dropdown-item" href="#">Register</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Login</a>
+                            {% endif %}
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <div class="text-center pr-4">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                            <div class="text-center">
                                 <i class="bi bi-cart"></i>
-                                <p>Cart</p>
+                                <p class="d-none d-lg-block">
+                                    {% if grand_total %}
+                                        ${{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        $0.00
+                                    {% endif %}
+                                </p>
                             </div>
                         </a>
                     </li>
