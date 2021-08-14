@@ -52,3 +52,9 @@
     margin: 20px;
 }
 
+
+@media screen and (max-width: 768px) {
+    .card-deck h3 {
+        font-size: 20px;
+    }
+}
