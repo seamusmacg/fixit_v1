@@ -1,3 +1,27 @@
+* {
+    font-family: 'Jost', sans-serif;
+}
+
+.navbar-brand {
+    font-size: 2rem;
+}
+
+.active-link {
+    color:  #f7584a !important; 
+}
+
+.color-red {
+    color:  #fc5647 !important; 
+}
+
+
+.navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+.navbar a:hover {
+    color: #f7584a !important;
+}
 
 .callout-image {
     background-image: url('/media/workdesk.jpg');
@@ -17,5 +41,14 @@
     padding-bottom: 20px !important;
     margin-top: 20px !important;
     margin-bottom: 20px !important;
+}
+
+.categories-card {
+    margin-right: 5px !important;
+}
+
+.departments-header {
+    padding: 20px;
+    margin: 20px;
 }
 
