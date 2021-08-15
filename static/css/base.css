@@ -2,6 +2,10 @@
     font-family: 'Jost', sans-serif;
 }
 
+.fa-truck {
+    color:  #d4af37;
+}
+
 .navbar-brand {
     font-size: 2rem;
 }
