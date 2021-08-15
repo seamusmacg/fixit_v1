@@ -6,10 +6,10 @@ def index(request):
     """View that returns index page
 
     Args:
-        request (request): HTTP request
+        request (GET): HTTP request for index.html
 
     Returns:
-        file: Index html file 
+        HTML file: Index HTML file 
     """
     
     return render(request, 'home/index.html')
