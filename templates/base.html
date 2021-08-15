@@ -28,16 +28,11 @@
     {% block extra_css %}
     {% endblock %}
 
-    {% block fontawesome %}
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css"
-        integrity="sha384-wESLQ85D6gbsF459vf1CiZ2+rr+CsxRY0RpiF1tLlQpDnAgg6rwdsUF1+Ics2bni" crossorigin="anonymous">
-    {% endblock %}
-
 
     {% block corejs %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://kit.fontawesome.com/b17b97d6c4.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
     </script>
@@ -169,88 +164,110 @@
     {% endblock %}
 </body>
 
-<!-- Footer -->
-<footer class="page-footer font-small pt-4" style="background-color:black; color:white">
 
-    <!-- Footer Links -->
+<footer class="page-footer font-small pt-4">
+
+
     <div class="container-fluid text-center text-md-left">
 
-        <!-- Grid row -->
+
         <div class="row">
 
-            <!-- Grid column -->
+
             <div class="col-md-6 mt-md-0 mt-3">
 
-                <!-- Content -->
-                <h5 class="text-uppercase">Footer Content</h5>
-                <p>Here you can use rows and columns to organize your footer content.</p>
+
+                <h5 class="text-uppercase text-white">FixIt</h5>
+                <ul class="list-unstyled list-inline mb-7 mb-md-0">
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-items">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-items">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-items">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-items">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="#" class="footer-items">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                    </li>
+                </ul>
 
             </div>
-            <!-- Grid column -->
+
 
             <hr class="clearfix w-100 d-md-none pb-3">
 
-            <!-- Grid column -->
+
             <div class="col-md-3 mb-md-0 mb-3">
 
-                <!-- Links -->
-                <h5 class="text-uppercase">Links</h5>
+                <h5 class="text-uppercase text-white">Company</h5>
 
-                <ul class="list-unstyled">
+                <ul class="list-unstyled footer-items">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a class="footer-items" href="#">About Us</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
+                        <a class="footer-items" href="#">Careers</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
+                        <a class="footer-items" href="#">Terms & Conditions</a>
                     </li>
                     <li>
-                        <a href="#!">Link 4</a>
+                        <a class="footer-items" href="#">Privacy Policy</a>
                     </li>
                 </ul>
 
             </div>
-            <!-- Grid column -->
 
-            <!-- Grid column -->
+
+
             <div class="col-md-3 mb-md-0 mb-3">
 
-                <!-- Links -->
-                <h5 class="text-uppercase">Links</h5>
+
+                <h5 class="text-uppercase text-white">Contact</h5>
 
                 <ul class="list-unstyled">
                     <li>
-                        <a href="#!">Link 1</a>
+                        <a class="footer-items" href="#!">Phone:+353 12889457</a>
                     </li>
                     <li>
-                        <a href="#!">Link 2</a>
+                        <a class="footer-items" href="#!">Fax: +353 12889458</a>
                     </li>
                     <li>
-                        <a href="#!">Link 3</a>
-                    </li>
-                    <li>
-                        <a href="#!">Link 4</a>
+                        <a class="footer-items" href="#!">Email: help@fixit.com</a>
                     </li>
                 </ul>
 
             </div>
-            <!-- Grid column -->
+
 
         </div>
-        <!-- Grid row -->
+
 
     </div>
-    <!-- Footer Links -->
 
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+
+
+    <div class="footer-copyright text-center py-3 footer-items">© 2020 Copyright:
+        <a class="footer-items" href="#"> FixIt.com</a>
     </div>
-    <!-- Copyright -->
+
 
 </footer>
-<!-- Footer -->
+
 
 </html>

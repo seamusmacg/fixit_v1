@@ -58,3 +58,24 @@
         font-size: 20px;
     }
 }
+
+.about-heading {
+    margin: 20px;
+    padding: 20px;
+}
+
+.about-paragraph {
+    line-height: 2;
+    text-align: justify;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+
+.page-footer {
+    background-color: black;
+}
+
+.footer-items {
+    color: #bababa !important;
+}
