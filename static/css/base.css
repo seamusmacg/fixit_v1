@@ -83,3 +83,36 @@
 .footer-items {
     color: #bababa !important;
 }
+
+.products-header {
+    text-align: center !important;
+    padding: 20px;
+    margin: 20px;
+}
+
+.category-card {
+    font-size: medium;
+    color: rgb(102, 98, 98) !important;
+}
+
+.title-card {
+    font-weight: bold;
+    font-size: large;
+    color: black !important;
+} 
+
+.category-card a:hover {
+    text-decoration: none !important;
+}
+
+.title-card a:hover {
+    color: rgb(102, 98, 98) !important;
+}
+
+.price-card {
+    color: rgb(128, 122, 122) !important;
+}
+
+.img-card {
+    padding: 20px;
+}
