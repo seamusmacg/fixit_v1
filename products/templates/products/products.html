@@ -19,95 +19,41 @@
     </div>
     <div class="container">
         <div class="row">
-                <div class="row">
-                    <div class="col-6 col-md-4 img-card">
-                        <div class="card mb-7">
-                            <div>
-                               <a href=""><img class="card-img-top" src="/media/energy-bulb.jpg" alt=""></a>
-                            </div>
-                            <div class="card-body">
-                                <!-- Category -->
-                                <div>
-                                    <a class="category-card" href="#">Electricity</a>
-                                </div>
-                                <!-- Title -->
-                                <div>
-                                    <a class="title-card" href="#">Energy Bulb</a>
-                                </div>
-                                <!-- Price -->
-                                <div class=>
-                                    €5.00
-                                </div>
-                            </div>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-6 col-md-4 img-card">
+                    <div class="card mb-7">
+                        <div>
+                            <a href=""><img class="card-img-top" src="{{ product.image.url }}"
+                                    alt="{{ product.name }}"></a>
                         </div>
-                    </div>
-                    <div class="col-6 col-md-4 img-card">
-                        <div class="card mb-7">
+                        <div class="card-body">
+                            <!-- Category -->
                             <div>
-                               <a href=""><img class="card-img-top" src="/media/energy-bulb.jpg" alt=""></a>
+                                <a class="category-card" href="#">Electricity</a>
                             </div>
-                            <div class="card-body">
-                                <!-- Category -->
-                                <div>
-                                    <a class="category-card" href="#">Electricity</a>
-                                </div>
-                                <!-- Title -->
-                                <div>
-                                    <a class="title-card" href="#">Energy Bulb</a>
-                                </div>
-                                <!-- Price -->
-                                <div class=>
-                                    €5.00
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 img-card">
-                        <div class="card mb-7">
+                            <!-- Title -->
                             <div>
-                               <a href=""><img class="card-img-top" src="/media/energy-bulb.jpg" alt=""></a>
+                                <a class="title-card" href="#">Energy Bulb</a>
                             </div>
-                            <div class="card-body">
-                                <!-- Category -->
-                                <div>
-                                    <a class="category-card" href="#">Electricity</a>
-                                </div>
-                                <!-- Title -->
-                                <div>
-                                    <a class="title-card" href="#">Energy Bulb</a>
-                                </div>
-                                <!-- Price -->
-                                <div class=>
-                                    €5.00
-                                </div>
+                            <!-- Rating -->
+                            <div class="rating-card">
+                                {% if product.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }}/5</small>
+                                {% else %}
+                                <small class="text-muted">No Rating</small>
+                                {% endif %}
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-6 col-md-4 img-card">
-                        <div class="card mb-7">
-                            <div>
-                               <a href=""><img class="card-img-top" src="/media/energy-bulb.jpg" alt=""></a>
-                            </div>
-                            <div class="card-body">
-                                <!-- Category -->
-                                <div>
-                                    <a class="category-card" href="#">Electricity</a>
-                                </div>
-                                <!-- Title -->
-                                <div>
-                                    <a class="title-card" href="#">Energy Bulb</a>
-                                </div>
-                                <!-- Price -->
-                                <div class=>
-                                    €5.00
-                                </div>
+                            <!-- Price -->
+                            <div class="price-card">
+                                €5.00
                             </div>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-</section>
-
-{% endblock %}
+    </div>
+</section {% endblock %}

@@ -3,7 +3,7 @@
 }
 
 .fa-truck {
-    color:  #d4af37;
+    color: #d4af37;
 }
 
 .navbar-brand {
@@ -11,11 +11,11 @@
 }
 
 .active-link {
-    color:  #f7584a !important; 
+    color: #f7584a !important;
 }
 
 .color-red {
-    color:  #fc5647 !important; 
+    color: #fc5647 !important;
 }
 
 
@@ -99,7 +99,7 @@
     font-weight: bold;
     font-size: large;
     color: black !important;
-} 
+}
 
 .category-card a:hover {
     text-decoration: none !important;
@@ -115,4 +115,9 @@
 
 .img-card {
     padding: 20px;
+}
+
+.rating-card {
+    font-size: medium;
+    color: rgb(102, 98, 98) !important;
 }
