@@ -30,11 +30,11 @@
                         <div class="card-body">
                             <!-- Category -->
                             <div>
-                                <a class="category-card" href="#">Electricity</a>
+                                <a class="category-card" href="#">{{ product.category|title }}</a>
                             </div>
                             <!-- Title -->
                             <div>
-                                <a class="title-card" href="#">Energy Bulb</a>
+                                <a class="title-card" href="#">{{ product.name }}</a>
                             </div>
                             <!-- Rating -->
                             <div class="rating-card">
@@ -46,7 +46,7 @@
                             </div>
                             <!-- Price -->
                             <div class="price-card">
-                                €5.00
+                                €{{ product.price }}
                             </div>
                         </div>
                     </div>
