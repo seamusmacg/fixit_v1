@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Product Section -->
+<section class="bg-light product-section">
+    <div class="container">
+        <div class="row text-left">
+            <div class="col-md-6">
+                <a href="{{ product.image.url }}"><img class="card-img-top" src="{{ product.image.url }}"
+                        alt="{{ product.name }}"></a>
+            </div>
+            <div class="col-md-6">
+                <h1 class="product-title">{{ product.name }}</h1>
+                <h4 class="category-title"><a href="#">{{ product.category|title }}</a></h4>
+                <span class="price-tag">€{{ product.price }}</span>
+                <span class="stock">(In Stock)</span>
+                <h3 class="product-description">Product Description</h3>
+                <p class="description-paragraph">{{ product.description }}</p>
+                <div class="row">
+                    <div class="col-md-3">
+                        <select class="form-select">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <span class="ml-1">Quantity</span>
+                    </div>
+                </div>
+                <a class="btn btn-light add-cart-btn" href="#" role="button">Add to Cart<i
+                        class="fas fa-shopping-cart ml-2"></i></a>
+            </div>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- Other Departments Section -->
+<section>
+    <h2 class="text-center departments-header">Explore Other Departments</h2>
+    <div class="container-fluid">
+        <div class="card-deck">
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/electrical.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-black font-weight-bold px-0 display-2">Electrical</h3>
+                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/gardening.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-white font-weight-bold px-0 display-2">Gardening</h3>
+                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/bathroom.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-black font-weight-bold px-0 display-2">Bathroom</h3>
+                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="/media/tools.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-white font-weight-bold px-0 display-2">Tools</h3>
+                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}

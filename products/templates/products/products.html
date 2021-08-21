@@ -24,8 +24,8 @@
                 <div class="col-6 col-md-4 img-card">
                     <div class="card mb-7">
                         <div>
-                            <a href=""><img class="card-img-top" src="{{ product.image.url }}"
-                                    alt="{{ product.name }}"></a>
+                            <a href="{% url 'product_info' product.id %}"><img class="card-img-top"
+                                    src="{{ product.image.url }}" alt="{{ product.name }}"></a>
                         </div>
                         <div class="card-body">
                             <!-- Category -->
@@ -34,7 +34,7 @@
                             </div>
                             <!-- Title -->
                             <div>
-                                <a class="title-card" href="#">{{ product.name }}</a>
+                                <a class="title-card" href="{% url 'product_info' product.id %}">{{ product.name }}</a>
                             </div>
                             <!-- Rating -->
                             <div class="rating-card">
@@ -55,5 +55,5 @@
             </div>
         </div>
     </div>
-    </div>
-</section {% endblock %}
+</section>
+{% endblock %}

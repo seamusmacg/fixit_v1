@@ -122,3 +122,43 @@
     color: rgb(102, 98, 98) !important;
 }
 
+.product-description {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.price-tag {
+    color: #fc5647;
+}
+
+.product-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.product-title {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.description-paragraph {
+    line-height: 2;
+    text-align: justify;
+}
+
+.add-cart-btn {
+    margin-top: 20px !important;
+    padding: 15px;
+    background-color: black;
+    color: white;
+}
+
+.category-title {
+    text-align: left;
+}
+
+.category-title a {
+    color: inherit;
+}
+
