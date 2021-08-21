@@ -140,6 +140,7 @@
 .product-title {
     text-align: left;
     padding-bottom: 10px;
+    padding-top: 10px;
 }
 
 .description-paragraph {
@@ -160,5 +161,10 @@
 
 .category-title a {
     color: inherit;
+}
+
+.product-rating {
+    padding-top: 10px;
+    color: rgb(163, 144, 33);
 }
 
