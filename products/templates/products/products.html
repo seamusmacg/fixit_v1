@@ -17,6 +17,8 @@
             <h3 class="products-header">Products</h3>
         </div>
     </div>
+
+    {% if products %}
     <div class="container">
         <div class="row">
             <div class="row">
@@ -55,6 +57,16 @@
             </div>
         </div>
     </div>
+    {% else %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="results">No Results<i class="fas fa-sad-tear pl-2"></i></h2>
+                <p class="card-text text-center results-message">Unfortunately there was no results found for that product search</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </section>
 
 <!-- Shop By Department -->
