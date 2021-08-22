@@ -14,8 +14,8 @@ def get_products(request):
     Returns:
         HTML file: Products HTML file 
     """
-    products = Product.objects.all()
-    query = None
+
+    query = ""
 
     if request.method == "GET":
         if 'q' in request.GET:
@@ -24,15 +24,13 @@ def get_products(request):
                 messages.error(request, "Nothing entered into searchbar!")
                 return redirect(reverse('products'))
 
-            # products = products.filter(Q(name_icontains=query)| Q(description_icontains=query))
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
-            products = products.filter(queries)
+        products = get_search_queries(query)
 
     context = {
-        'products': products,
+        'products': products, 
         'search_term': query,
     }
-
+                   
     return render(request, 'products/products.html', context)
 
 
@@ -52,3 +50,13 @@ def get_product(request, product_id):
     }
 
     return render(request, 'products/product_info.html', context)
+
+
+def get_search_queries(query=None):
+    products = Product.objects.all()
+    queries = Q(name__icontains=query) | Q(description__icontains=query) 
+
+    products = products.filter(queries).distinct()
+
+    return products
+
