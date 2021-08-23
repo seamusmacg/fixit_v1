@@ -94,11 +94,11 @@
                             Products
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Sort by Price</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Sort by Price</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Sort By Rating</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Sort By Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Sort By Category</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Sort By Category</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
                         </div>
