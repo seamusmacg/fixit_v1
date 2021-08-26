@@ -49,6 +49,14 @@ def get_products(request):
                 else:
                     products = Product.objects.order_by('category')
 
+            if sort == "name":
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                if direction == 'desc':
+                    products = Product.objects.order_by('-name')
+                else:
+                    products = Product.objects.order_by('name')
+
 
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')

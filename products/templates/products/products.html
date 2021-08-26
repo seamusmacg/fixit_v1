@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_js %}
+<script>
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown('toggle');
+    });
+</script>
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -17,6 +25,55 @@
             <h3 class="products-header">Products</h3>
         </div>
     </div>
+    <div class="row text-center justify-content-center">
+        <div class="col-12">
+            <div class="dropdown">
+                <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuButton2"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Dropdown button
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price (High to
+                            low)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">Price (Low to
+                            high)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">Rating (High to
+                            low)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating (High to
+                            low)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category
+                            (A-Z)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=desc">Category
+                            (Z-A)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">Name (A-Z)</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">Name (Z-A)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 
     {% if products %}
     <div class="container">
@@ -62,7 +119,8 @@
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="results">No Results<i class="fas fa-sad-tear pl-2"></i></h2>
-                <p class="card-text text-center results-message">Unfortunately there was no results found for that product search</p>
+                <p class="card-text text-center results-message">Unfortunately there was no results found for that
+                    product search</p>
             </div>
         </div>
     </div>
