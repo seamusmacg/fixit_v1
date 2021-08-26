@@ -2,16 +2,15 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from .models import Product, Category
 from django.contrib import messages 
 from django.db.models import Q
+from django.db.models.functions import Lower
 
 # Create your views here.
 
 
 def get_products(request):
     """A view that returns products page with all product data.
-
     Args:
         request (GET): HTTP request for products.html
-
     Returns:
         HTML file: Products HTML file 
     """
@@ -22,19 +21,33 @@ def get_products(request):
     sort = None
     direction = None
 
-    if request.GET:
+    if request.method == "GET":
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
+            if sort == "price":
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
                 if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
+                    products = Product.objects.order_by('-price')
+                else:
+                    products = Product.objects.order_by('price')
+
+            if sort == "rating":
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                if direction == 'desc':
+                    products = Product.objects.order_by('-rating')
+                else:
+                    products = Product.objects.order_by('rating')
+
+            if sort == "category":
+                if 'direction' in request.GET:
+                    direction = request.GET['direction']
+                if direction == 'desc':
+                    products = Product.objects.order_by('-category')
+                else:
+                    products = Product.objects.order_by('category')
 
 
         if 'category' in request.GET:
@@ -50,13 +63,13 @@ def get_products(request):
             
             products = get_product_queries(query)
 
-    current_sorting = f'{sort}_{direction}'
+    sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
         'current_categories': categories,
-        'current_sort': current_sorting,
+        'current_sort': sorting,
     }
 
     return render(request, 'products/products.html', context)
