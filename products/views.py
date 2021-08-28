@@ -61,7 +61,7 @@ def get_products(request):
         if 'category' in request.GET:
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
-            categories = Category.objects.filter(name__in=categories)
+            categories = Category.objects.all().filter(name__in=categories)
 
         if 'q' in request.GET:
             query = request.GET['q']
@@ -79,6 +79,8 @@ def get_products(request):
         'current_categories': categories,
         'current_sort': sorting,
     }
+
+    print(type(products))
 
     return render(request, 'products/products.html', context)
 

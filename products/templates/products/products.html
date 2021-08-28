@@ -1,13 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_js %}
-<script>
-    $(document).ready(function () {
-        $('.dropdown-toggle').dropdown('toggle');
-    });
-</script>
-{% endblock %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -25,54 +18,47 @@
             <h3 class="products-header">Products</h3>
         </div>
     </div>
-    <div class="row text-center justify-content-center">
+    <div class="row align-items-center">
         <div class="col-12">
-            <div class="dropdown">
-                <a class="btn btn-secondary dropdown-toggle" role="button" id="dropdownMenuButton2"
-                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown button
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price (High to
-                            low)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">Price (Low to
-                            high)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">Rating (High to
-                            low)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating (High to
-                            low)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category
-                            (A-Z)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=desc">Category
-                            (Z-A)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">Name (A-Z)</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">Name (Z-A)</a>
-                    </li>
-                </ul>
-            </div>
+            {% for category in current_categories %}
+            <a class="btn btn-outline-secondary text-center">{{ category.name }}</a>
+            {% endfor %}
         </div>
     </div>
+    {% if products %}
+    <div class="container text-center justify-content-center">
+        <div class="dropdown">
+            <button class="btn btn-dark dropdown-toggle" id="menu1" type="button" data-toggle="dropdown">Sort Products
+                <span class="caret"></span></button>
+            <ul class="dropdown-menu dropdown-menu-dark" role="menu" aria-labelledby="menu1">
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price (Low to
+                        high)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">Price (High to
+                        low)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">Rating (Low to
+                        high)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating (High to
+                        low)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category
+                        (A-Z)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=desc">Category
+                        (Z-A)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">Name (A-Z)</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">Name (Z-A)</a>
+                </li>
+            </ul>
+        </div><br>
+    </div>
+    {% endif %}
+
+
 
 
     {% if products %}
@@ -89,7 +75,8 @@
                         <div class="card-body">
                             <!-- Category -->
                             <div>
-                                <a class="category-card" href="#">{{ product.category|title }}</a>
+                                <a class="category-card"
+                                    href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category|title }}</a>
                             </div>
                             <!-- Title -->
                             <div>
