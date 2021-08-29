@@ -189,3 +189,19 @@ html,body
     color: #fc5647;
 }
 
+.category-btn {
+    padding-bottom: 20px !important;
+}
+
+.products-home {
+    color: #f7584a;
+}
+
+a.products-home:hover {
+    color: #bababa;
+}
+
+.search-term {
+    font-weight: bold;
+    font-style: italic;
+}

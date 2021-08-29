@@ -18,10 +18,10 @@
             <h3 class="products-header">Products</h3>
         </div>
     </div>
-    <div class="row align-items-center">
+    <div class="row text-center justify-content-center category-btn">
         <div class="col-12">
             {% for category in current_categories %}
-            <a class="btn btn-outline-secondary text-center">{{ category.name }}</a>
+            <a class="btn btn-outline-secondary" href="{% url 'products' %}?category={{ category.name }}">{{ category.name|title }}</a>
             {% endfor %}
         </div>
     </div>
@@ -57,6 +57,21 @@
         </div><br>
     </div>
     {% endif %}
+
+
+    <div class="container">
+        <p>
+            {% if search_term or current_categories or current_sort != 'None_None' %}
+            <span><a href="{% url 'products' %}" class="products-home">Products Home</a></span>
+            {% endif %}
+            {% if products.count == 1 %}
+            {{ products.count }} Product found{% if search_term %} for search term <span class="search-term">{{ search_term }}</span>{% endif %} 
+            {% else %}
+            {{ products.count }} Products Found{% if search_term %} for search term <span class="search-term">{{ search_term }}</span>{% endif %}
+            {% endif %}
+        </p>
+    </div>
+ 
 
 
 
