@@ -209,3 +209,8 @@ a.products-home:hover {
 .top-btn {
     padding: 20px !important;
 }
+
+.cart-heading {
+    padding: 30px;
+    text-align: center;
+}

@@ -61,7 +61,7 @@
                     <div class="col-12">
                         <div class="text-center text-white">
                             <span>
-                                <i class="fas fa-truck p-2"></i>Free delivery on orders over ${{ free_shipping_threshold }}!<i class="fas fa-truck p-2"></i>
+                                <i class="fas fa-truck p-2"></i>Free delivery on orders over ${{ free_delivery_threshold }}!<i class="fas fa-truck p-2"></i>
                             </span>
                         </div>
     
@@ -174,7 +174,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
-                            href="#">
+                            href="{% url 'view_cart' %}">
                             <div class="text-center">
                                 <i class="bi bi-cart"></i>
                                 <p class="d-none d-lg-block">
