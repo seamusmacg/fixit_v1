@@ -7,24 +7,24 @@ def cart_contents(request):
     total = 0 
     product_count = 0 
 
-    if total < settings.FREE_DELIVERY_THRESHOLD:
-        delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
-        free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
+    if total < settings.FREE_DELIVERY_CONDITION:
+        delivery_cost = total * Decimal(settings.DELIVERY_PERCENTAGE / 100)
+        free_delivery_delta = settings.FREE_DELIVERY_CONDITION - total
     else:
-        delivery = 0
+        delivery_cost = 0
         free_delivery_delta = 0
 
-    grand_total = delivery + total
+    overall_cost = delivery_cost + total
 
 
     context = {
         'cart_items': cart_items,
         'total': total,
         'product_count': product_count,
-        'delivery': delivery, 
+        'delivery_cost': delivery_cost, 
         'free_delivery_delta': free_delivery_delta, 
-        'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD, 
-        'grand_total': grand_total, 
+        'free_delivery_condition': settings.FREE_DELIVERY_CONDITION, 
+        'grand_total': overall_cost, 
 
     }
 
