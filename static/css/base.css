@@ -214,3 +214,11 @@ a.products-home:hover {
     padding: 30px;
     text-align: center;
 }
+
+.back-link {
+    color: black;
+}
+
+a.back-link:hover {
+    color: #bababa;
+}
