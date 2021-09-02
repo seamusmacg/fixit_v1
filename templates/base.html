@@ -173,10 +173,14 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                        <a class="{% if overall_cost  %}text-danger font-weight-bold{% else %}text-black{% endif %} nav-link"
                             href="{% url 'view_cart' %}">
                             <div class="text-center">
-                                <i class="bi bi-cart"></i>
+                                {% if product_quantity %}
+                                <i class="bi bi-cart badge">{{ product_quantity }}</i>
+                                {% else %}
+                                <i class="bi bi-cart badge"></i>
+                                {% endif %}
                                 <p class="d-none d-lg-block">
                                     {% if overall_cost %}
                                     ${{ overall_cost|floatformat:2 }}

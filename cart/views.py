@@ -15,17 +15,25 @@ def view_cart(request):
     return render(request, 'cart/cart.html')
 
 
-def add_cart(request, item_id):
+def add_cart(request, product_id):
+    """View that adds products to cart
+
+    Args:
+        request (POST): POST request with product data
+        product_id (Number): ID (number) of product
+
+    Returns:
+        [GET request]: Redirects to current page
+    """
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart =  request.session.get('cart', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
+    if product_id in list(cart.keys()):
+        cart[product_id] += quantity
     else:
-        cart[item_id] = quantity
+        cart[product_id] = quantity
 
     request.session['cart'] = cart
-    print(request.session['cart'])
     return redirect(redirect_url)

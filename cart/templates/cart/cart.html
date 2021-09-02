@@ -20,8 +20,9 @@
     </div>
     <div class="row">
         <div class="col-12">
-            {% if cart_items %}
+            {% if cart_list %}
             <table class="table">
+                {{ cart_list }}
             </table>
             {% else %}
             <span><p>There is nothing in your cart - <a href="{% url 'home' %}"> Back To Home<i class="fas fa-home pl-1"></i></a></p></span>
