@@ -223,3 +223,18 @@ a.back-link:hover {
     color: #bababa;
 }
 
+.table-headers {
+    letter-spacing: 0.1em;
+}
+
+.cart-table {
+    padding-bottom: 50px !important;
+}
+
+.checkout-cart-btn {
+    margin-top: 20px !important;
+    padding: 15px;
+    background-color: black;
+    color: white;
+    text-transform: uppercase;
+}
