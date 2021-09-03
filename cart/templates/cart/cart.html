@@ -18,9 +18,10 @@
                 <h1 class="cart-heading">Shopping Cart</h1>
             </div>
         </div>
+
+        {% if cart_list %}
         <div class="row">
             <div class="col-12">
-                {% if cart_list %}
                 <div class="table-responsive cart-table">
                     <table class="table table-borderless">
                         <thead class="thead-dark">
@@ -52,22 +53,77 @@
                             </td>
                         </tr>
                         {% endfor %}
+                        <tr>
+                            <td>
+                                <h5><strong class="pr-1">Cart Total:</strong>${{ total|floatformat:2 }}</h5>
+                                <h6><strong class="pr-1">Delivery Cost:</strong>${{ delivery_cost|floatformat:2}}</h6>
+                                <h6><strong class="pr-1">Overall Cost:</strong>${{ overall_cost|floatformat:2}}</h6>
+                                {% if free_delivery_remainder != 0 %}
+                                <p>If you spend an another ${{ free_delivery_remainder }} your order will qualify for
+                                    free delivery.</p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button type="submit" class="btn btn-dark btn-lg checkout-cart-btn">Checkout <i
+                                        class="far fa-credit-card ml-2"></i></button>
+                                <br>
+                                <br>
+                                <span><a class="back-link" href="#"><i class="fas fa-arrow-left pr-1"></i>Back To
+                                        Products</a></span>
+                            </td>
+                        </tr>
                     </table>
-                    <button type="submit" class="btn btn-dark btn-lg checkout-cart-btn">Checkout <i
-                            class="far fa-credit-card ml-2"></i></button>
-                    <br>
-                    <br>
-                    <span><a class="back-link" href="#"><i class="fas fa-arrow-left pr-1"></i>Back To
-                            Products</a></span>
                 </div>
-                {% else %}
-                <span>
-                    <p>There is nothing in your cart - <a href="{% url 'home' %}"> Back To Home<i
-                                class="fas fa-home pl-1"></i></a></p>
-                </span>
-                {% endif %}
+            </div>
+        </div>
+        {% else %}
+        <span>
+            <p>There is nothing in your cart - <a href="{% url 'home' %}"> Back To Home<i
+                        class="fas fa-home pl-1"></i></a></p>
+        </span>
+
+        {% endif %}
+    </div>
+</section>
+
+{% if not cart_list %}
+<!-- Other Departments Section -->
+<section>
+    <h2 class="text-center departments-header">Explore Other Departments</h2>
+    <div class="container-fluid">
+        <div class="card-deck">
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/electrical.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-black font-weight-bold px-0 display-2">Electrical</h3>
+                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/gardening.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-white font-weight-bold px-0 display-2">Gardening</h3>
+                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card categories-card">
+                <img class="card-img-top" src="/media/bathroom.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-black font-weight-bold px-0 display-2">Bathroom</h3>
+                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="/media/tools.jpg" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h3 class="card-title text-white font-weight-bold px-0 display-2">Tools</h3>
+                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                </div>
             </div>
         </div>
     </div>
 </section>
+{% endif %}
 {% endblock %}

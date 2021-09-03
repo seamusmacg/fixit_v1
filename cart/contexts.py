@@ -18,7 +18,7 @@ def calculate_delivery_cost(total):
     if free_delivery:
         delivery_cost = 0
     else:
-        delivery_cost = total * settings.FREE_DELIVERY / 100
+        delivery_cost = total * settings.FREE_DELIVERY_CONDITION / 100
     
     return delivery_cost
 
@@ -34,11 +34,11 @@ def calculate_delivery_delta(total):
     """
     free_delivery = total > settings.FREE_DELIVERY_CONDITION
     if free_delivery:
-        free_delivery_delta = 0
+        free_delivery_remainder = 0
     else:
-        free_delivery_delta = settings.FREE_DELIVERY_CONDITION - total
+        free_delivery_remainder = settings.FREE_DELIVERY_CONDITION - total
 
-    return free_delivery_delta
+    return free_delivery_remainder
 
 
 
@@ -67,7 +67,7 @@ def cart_contents(request):
         cart_list += [{'product_id': product_id, 'quantity': quantity, 'product': product,}]
 
     delivery_cost = calculate_delivery_cost(total)
-    free_delivery_delta = calculate_delivery_delta(total)
+    free_delivery_remainder = calculate_delivery_delta(total)
 
     overall_cost = delivery_cost + total
 
@@ -78,7 +78,7 @@ def cart_contents(request):
         'total': total,
         'product_count': product_count,
         'delivery_cost': delivery_cost, 
-        'free_delivery_delta': free_delivery_delta, 
+        'free_delivery_remainder': free_delivery_remainder, 
         'free_delivery_condition': settings.FREE_DELIVERY_CONDITION, 
         'overall_cost': overall_cost, 
         'product_quantity': product_quantity,
