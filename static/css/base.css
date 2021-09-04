@@ -248,3 +248,10 @@ a.back-link:hover {
 .empty-cart a {
     color: #fc5647;
 }
+
+.message-container {
+    position: fixed;
+    top: 60px;
+    right: 20px;
+    z-index: 999999999999;
+}

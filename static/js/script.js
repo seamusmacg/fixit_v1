@@ -2,3 +2,4 @@
 function navigateTop() {
     document.body.scrollTop = 0;
 }
+
