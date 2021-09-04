@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect, reverse
+from products.models import Product
 
 # Create your views here.
 
@@ -37,3 +38,15 @@ def add_cart(request, product_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def remove_cart(request, product_id):
+
+
+    cart =  request.session.get('cart', {})
+
+    if product_id in cart:
+        del cart[product_id]
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))

@@ -238,3 +238,13 @@ a.back-link:hover {
     color: white;
     text-transform: uppercase;
 }
+
+.empty-cart {
+    text-align: center;
+    padding: 50px;
+    font-size: 30px;
+}
+
+.empty-cart a {
+    color: #fc5647;
+}
