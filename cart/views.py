@@ -46,11 +46,12 @@ def add_cart(request, product_id):
 
 def remove_cart(request, product_id):
 
-
+    product = Product.objects.get(pk=product_id)
     cart =  request.session.get('cart', {})
 
     if product_id in cart:
         del cart[product_id]
+        messages.success(request, f'{product.name} removed from your cart')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

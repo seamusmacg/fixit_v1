@@ -200,7 +200,13 @@
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
+        {% if message.level == 40 %}
+        {% include 'includes/toasts/errors_toast.html' %}
+        {% elif message.level == 25 %}
         {% include 'includes/toasts/success_toast.html' %}
+        {% else %}
+        {% include 'includes/toasts/info_toast.html' %}
+        {% endif %}
         {% endfor %}
     </div>
     {% endif %}
