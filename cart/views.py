@@ -52,6 +52,8 @@ def remove_cart(request, product_id):
     if product_id in cart:
         del cart[product_id]
         messages.success(request, f'{product.name} removed from your cart')
+    else:
+        messages.error(request, f'Sorry there was an error removing that product')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
