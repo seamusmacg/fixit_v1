@@ -17,7 +17,7 @@ class Order(models.Model):
     postcode = models.CharField(max_length=15, null=True, blank=True)
     town = models.CharField(max_length=50, null=False, blank=False)
     address = models.CharField(max_length=100, null=False, blank=False)
-    county = models.CharField(max_length=100, null=True, blank=True)
+    country = models.CharField(max_length=100, null=True, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
@@ -27,7 +27,7 @@ class Order(models.Model):
         return uuid.uuid4().hex.upper()
 
     def modify_total(self):
-        self.order_total = self.items.aggregate(sum('item_total'))['item_total_sum']
+        self.order_total = self.items.aggregate(Sum('item_total'))['item_total_sum']
         free_delivery = self.order_total > settings.FREE_DELIVERY_CONDITION 
         if free_delivery:
             self.delivery_cost = 0
