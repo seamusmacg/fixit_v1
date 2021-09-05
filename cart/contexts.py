@@ -1,4 +1,5 @@
 from django.conf import settings
+from decimal import Decimal 
 from collections import Counter
 from django.shortcuts import get_object_or_404 
 from products.models import Product
@@ -55,6 +56,7 @@ def cart_contents(request):
     cart_list = []
     total = 0 
     product_count = 0
+    subtotal = 0
     product_quantity = 0
     cart = request.session.get('cart', {})
 
@@ -63,8 +65,9 @@ def cart_contents(request):
         product = get_object_or_404(Product, pk=product_id)
         product_quantity = quantity + product_quantity
         total += quantity * product.price
+        subtotal = float(quantity * product.price)
         product_count += product.price
-        cart_list += [{'product_id': product_id, 'quantity': quantity, 'product': product,}]
+        cart_list += [{'product_id': product_id, 'quantity': quantity, 'product': product, 'subtotal': subtotal,}]
 
     delivery_cost = calculate_delivery_cost(total)
     free_delivery_remainder = calculate_delivery_delta(total)
@@ -85,7 +88,6 @@ def cart_contents(request):
 
     }
 
-    print(product_quantity)
 
 
     return context

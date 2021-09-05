@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Checkout Section -->
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="checkout-heading">Checkout</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="table-repsonsive cart-table">
+                    <table class="table table-sm table-striped">
+                        <thead class="thead-dark">
+                            <th scope="col">Order Summary</th>
+                            <th scope="col">Subtotal</th>
+                        </thead>
+
+                        <tbody>
+                            {% for item in cart_list %}
+                            <tr>
+                                <td>
+                                    <p class="font-weight-bold">{{ item.product.name }} X {{ item.quantity }}</p>
+                                </td>
+                                <td>
+                                    <p class="font-italic">{{ item.subtotal|floatformat:2 }}</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <div class="order-final">
+                        <table class="table table-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Figure</th>
+                                    <th scope="col">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Order Total:</th>
+                                    <td>${{ total|floatformat:2 }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Delivery Cost:</th>
+                                    <td>${{ delivery_cost|floatformat:2 }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Overall Cost:</th>
+                                    <td><strong>${{ overall_cost|floatformat:2 }}</strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <p class="font-weight-bold pb-10">In order to complete your order please complete the form below:</p>
+                <form action="#" action="POST" id="payment-details">
+                    {% csrf_token %}
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label">Details</legend>
+                        {{ order_form.name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
+                    </fieldset>
+                    <fieldset class="rounded px-3 mb-5">
+                        <legend class="fieldset-label">Details</legend>
+                        {{ order_form.phone | as_crispy_field }}
+                        {{ order_form.country | as_crispy_field }}
+                        {{ order_form.postcode | as_crispy_field }}
+                        {{ order_form.town | as_crispy_field }}
+                        {{ order_form.address | as_crispy_field }}
+                        <div class="form-check">
+                            {% if user.authenticated %}
+                            <input class="form-check-input" type="checkbox" value="" id="save-info">
+                            <label class="form-check-label" for="save-info">
+                                Add details to your profile
+                            </label>
+                            {% else %}
+                            <label class="form-check-label pt-8" for="save-info">
+                                <a href="{% url 'account_signup' %}">Signup</a> or
+                                <a href="{% url 'account_login' %}">Login</a> to save details
+                            </label>
+                            {% endif %}
+                        </div>
+                    </fieldset>
+                    <fieldset class="px-3 mb-5">
+                        <legend class="fieldset-label">Payment </legend>
+                        <!-- Stripe Card Element -->
+                        <div class="mb-3" id="card-element"></div>
+                        <!-- Display Errors -->
+                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                        <span class="d-block adjust-bag"><a href="{% url 'view_cart' %}">Adjust Bag</a></span>
+                        <br>
+                        <span class="d-block pt-10"><button type="submit" class="btn btn-dark btn-lg" href>Complete Order<i
+                                    class="fas fa-lock pl-2"></i></button></span>
+                        <br>
+                        <span class="d-block payemnt-message"><strong>${{ overall_cost|floatformat:2 }}</strong> will be charged to your card.</span>
+                        <br>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}

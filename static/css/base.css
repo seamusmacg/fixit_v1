@@ -255,3 +255,33 @@ a.back-link:hover {
     right: 20px;
     z-index: 999999999999;
 }
+
+.checkout-heading {
+    padding: 30px;
+    text-align: center;
+}
+
+.fieldset-label {
+    color: #fc5647 !important;
+}
+
+fieldset a {
+    color: #c0880f;
+}
+
+fieldset a:hover {
+    color: #c0880f;
+}
+
+.fa-lock {
+    color: #eebe58 !important;
+}
+
+.adjust-bag {
+    font-size: larger;
+}
+
+.payemnt-message {
+    font-size: large;
+}
+
