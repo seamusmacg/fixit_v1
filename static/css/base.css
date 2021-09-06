@@ -314,3 +314,7 @@ fieldset a:hover {
     color: #aab7c4;
 }
 
+.card-error-color {
+    color: #FF0000 !important;
+}
+

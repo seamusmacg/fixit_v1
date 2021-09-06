@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-12">
                 <p class="font-weight-bold pb-10">In order to complete your order please complete the form below:</p>
-                <form action="#" action="POST" id="payment-details">
+                <form action="#" action="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label">Details</legend>
@@ -116,7 +116,7 @@
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <span class="d-block adjust-bag pt-2"><a href="{% url 'view_cart' %}">Adjust Bag</a></span>
                         <br>
-                        <span class="d-block pt-10"><button type="submit" class="btn btn-dark btn-lg" href>Complete
+                        <span class="d-block pt-10"><button type="submit" id="pay-button" class="btn btn-dark btn-lg" href>Complete
                                 Order<i class="fas fa-lock pl-2"></i></button></span>
                         <br>
                         <span class="d-block payemnt-message"><strong>${{ overall_cost|floatformat:2 }}</strong> will be
