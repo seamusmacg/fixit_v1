@@ -102,17 +102,25 @@
                         </div>
                     </fieldset>
                     <fieldset class="px-3 mb-5">
-                        <legend class="fieldset-label">Payment </legend>
+                        <legend class="fieldset-label pb-1">Payment </legend>
                         <!-- Stripe Card Element -->
-                        <div class="mb-3" id="card-element"></div>
+
+                        <div id="card-element" class="mb-3">
+                            <!-- Elements will create input elements here -->
+                        </div>
+
+                        <!-- We'll put the error messages in this element -->
+                        <div id="card-errors" role="alert"></div>
+
                         <!-- Display Errors -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-                        <span class="d-block adjust-bag"><a href="{% url 'view_cart' %}">Adjust Bag</a></span>
+                        <span class="d-block adjust-bag pt-2"><a href="{% url 'view_cart' %}">Adjust Bag</a></span>
                         <br>
-                        <span class="d-block pt-10"><button type="submit" class="btn btn-dark btn-lg" href>Complete Order<i
-                                    class="fas fa-lock pl-2"></i></button></span>
+                        <span class="d-block pt-10"><button type="submit" class="btn btn-dark btn-lg" href>Complete
+                                Order<i class="fas fa-lock pl-2"></i></button></span>
                         <br>
-                        <span class="d-block payemnt-message"><strong>${{ overall_cost|floatformat:2 }}</strong> will be charged to your card.</span>
+                        <span class="d-block payemnt-message"><strong>${{ overall_cost|floatformat:2 }}</strong> will be
+                            charged to your card.</span>
                         <br>
                     </fieldset>
                 </form>
@@ -124,4 +132,11 @@
 
 
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
