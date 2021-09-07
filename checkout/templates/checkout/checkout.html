@@ -73,7 +73,7 @@
         <div class="row">
             <div class="col-12">
                 <p class="font-weight-bold pb-10">In order to complete your order please complete the form below:</p>
-                <form action="#" action="POST" id="payment-form">
+                <form action="{% url 'view_checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label">Details</legend>

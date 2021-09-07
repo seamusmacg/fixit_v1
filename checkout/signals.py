@@ -7,10 +7,11 @@ from .models import OrderItem
 @receiver(post_save, sender=OrderItem)
 def save_update(sender, instance, created, **kwargs):
     """Update the order when update/create"""
+    print("Save signal received!")
     instance.order.modify_total()
 
 
-@receiver(post_save, sender=OrderItem)
+@receiver(post_delete, sender=OrderItem)
 def delete_update(sender, instance, **kwargs):
     """Update the order when delete"""
     instance.order.modify_total()

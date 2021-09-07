@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Order Confirmation Section -->
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="checkout-heading">Order Confirmed</h1>
+                <p>Thank you for your order we have sent a confirmation email to you email address: <strong>{{ order.email }}</strong></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+{% endblock %}

@@ -19,7 +19,7 @@ def calculate_delivery_cost(total):
     if free_delivery:
         delivery_cost = 0
     else:
-        delivery_cost = total * settings.FREE_DELIVERY_CONDITION / 100
+        delivery_cost = total * settings.DELIVERY_PERCENTAGE/ 100
     
     return delivery_cost
 

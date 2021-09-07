@@ -15,7 +15,7 @@ def view_checkout(request):
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-
+        print(cart)
         form_details = {
             'name': request.POST['name'],
             'email': request.POST['email'],
