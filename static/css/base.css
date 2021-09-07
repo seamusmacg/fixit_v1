@@ -314,7 +314,29 @@ fieldset a:hover {
     color: #aab7c4;
 }
 
+/* End Stripe Styling */
+
 .card-error-color {
     color: #FF0000 !important;
+}
+
+.success-message {
+    text-align: center;
+    color: green;
+    font-size: 25px;
+}
+
+.thanks-message {
+    padding-bottom: 20px;
+}
+
+.continue-shopping {
+    text-align: center;
+    color: #fc5647;
+    padding-bottom: 20px;
+}
+
+.continue-shopping a:hover {
+    color: #fc5647;
 }
 
