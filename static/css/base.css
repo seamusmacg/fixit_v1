@@ -340,4 +340,25 @@ fieldset a:hover {
     color: #fc5647;
 }
 
+.form-container {
+    padding-top: 20px;
+}
+
+
+section {
+    min-height: 70vh;
+}
+
+.allauth-form-inner-content h1 {
+    color: rgb(29, 145, 87) !important;
+}
+
+.form-link {
+    color: #fc5647;
+}
+
+a.form-link:hover {
+    color: #fc5647;
+}
+
 
