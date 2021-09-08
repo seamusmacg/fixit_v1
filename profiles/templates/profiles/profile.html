@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Profile Section -->
+<section class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="checkout-heading">Profile</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+<script src="{% static 'js/stripe_elements.js' %}"></script>
+{% endblock %}
