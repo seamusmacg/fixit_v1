@@ -340,3 +340,8 @@ fieldset a:hover {
     color: #fc5647;
 }
 
+select:invalid,
+select option[value=""] {
+    color:rgb(102, 98, 98) !important;
+}
+

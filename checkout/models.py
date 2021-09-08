@@ -5,6 +5,8 @@ from django.conf import settings
 
 from products.models import Product
 
+from django_countries.fields import CountryField
+
 
 
 class Order(models.Model):
@@ -16,7 +18,7 @@ class Order(models.Model):
     postcode = models.CharField(max_length=15, null=True, blank=True)
     town = models.CharField(max_length=50, null=False, blank=False)
     address = models.CharField(max_length=100, null=False, blank=False)
-    country = models.CharField(max_length=100, null=True, blank=True)
+    country = CountryField(blank_label='Country *', null=False, blank=True)
     date = models.DateTimeField(auto_now_add=True)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     order_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
@@ -27,16 +29,12 @@ class Order(models.Model):
 
     def modify_total(self):
         self.order_total = self.items.aggregate(Sum('item_total'))['item_total__sum'] or 0
-        print(self.order_total)
         free_delivery = self.order_total > settings.FREE_DELIVERY_CONDITION 
         if free_delivery:
             self.delivery_cost = 0  
-            print(self.delivery_cost)
         else:
             self.delivery_cost = self.order_total * settings.DELIVERY_PERCENTAGE / 100
-            print(self.delivery_cost)
         self.overall_cost = self.order_total + self.delivery_cost
-        print(self.overall_cost)
         self.save()
 
 
@@ -44,7 +42,7 @@ class Order(models.Model):
         if not self.order_number:
             self.order_number = self._create_order_number()
         super(Order, self).save(*args, **kwargs)
-        
+
 
     def __str__(self):
         return self.order_number

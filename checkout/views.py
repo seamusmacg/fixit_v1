@@ -81,10 +81,9 @@ def checkout_success(request, order_number):
         'order': order, 
         'delivery_cost': order.delivery_cost,
         'order_total': order.order_total,
-        'overall_cost': order.overall_cost,
+        'billing_cost': order.overall_cost,
         'order_number': order.order_number,
     }
-    print(order.delivery_cost)
 
     return render(request, 'checkout/checkout_success.html', context)
 
