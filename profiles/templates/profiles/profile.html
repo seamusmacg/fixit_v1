@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 
 {% block page_header %}
@@ -17,20 +17,26 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1 class="checkout-heading">Profile</h1>
+                <h1 class="checkout-heading profile-heading">Profile</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h3 class="profile-subheading">Delivery Details</h3>
+                <form class="mt-3" action="{% url 'get_profile' %}" method="POST">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-outline-dark" type="submit">Update Info</button>
+                </form>
+            </div>
+            <div class="col-12 col-lg-6">
+                <h3 class="profile-subheading">Order History</h3>
+                {{ orders }}
             </div>
         </div>
     </div>
-    {{ profile }}
 </section>
 
 
 
-{% endblock %}
-
-{% block postloadjs %}
-{{ block.super }}
-{{ stripe_public_key|json_script:"id_stripe_public_key" }}
-{{ client_secret|json_script:"id_client_secret" }}
-<script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
