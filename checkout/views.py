@@ -5,6 +5,8 @@ from products.models import Product
 from profiles.forms import ProfileForm
 from profiles.models import Profile
 from .models import Order, OrderItem
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 from .forms import OrderForm
 from cart.contexts import cart_contents
@@ -104,7 +106,31 @@ def checkout_success(request, order_number):
         'order_number': order.order_number,
     }
 
+    send_confirmation_email(order)
+
     return render(request, 'checkout/checkout_success.html', context)
+
+
+def send_confirmation_email(order):
+    email_confirmation = order.email
+
+    subject = render_to_string(
+        'checkout/emails/confirmation_subject.txt',
+        {'order': order}
+    )
+    body = render_to_string(
+        'checkout/emails/confirmation_body.txt',
+        {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL}
+    )
+
+    send_mail(
+        subject,
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [email_confirmation]
+    )
+
+
 
 
 

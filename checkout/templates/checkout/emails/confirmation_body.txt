@@ -1,0 +1,10 @@
+Hi {{ order.name }},
+
+This a confirmation order for your recent FixIt order: {{ order_number }} .
+
+Your order will be with you shortly. 
+
+Thank you for shopping with us, we hope to see you again!
+
+FixIt Customer Service Team
+
