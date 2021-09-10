@@ -370,10 +370,27 @@ a.form-link:hover {
     text-align: center;
 }
 
+.contact-fields {
+    color: #fc5647 !important;
+}
+
+.contact-heading {
+    color: rgb(29, 145, 87);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.profile-heading {
+    color: rgb(29, 145, 87) !important;
+    text-align: center;
+}
+
 .profile-subheading {
     color: #fc5647;
     text-align: center;
     padding-bottom: 2px;
 }
+
+
 
 

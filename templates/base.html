@@ -63,15 +63,16 @@
                     <div class="col-12">
                         <div class="text-center text-white">
                             <span>
-                                <i class="fas fa-truck p-2"></i>Free delivery on orders over ${{ free_delivery_condition }}!<i class="fas fa-truck p-2"></i>
+                                <i class="fas fa-truck p-2"></i>Free delivery on orders over
+                                ${{ free_delivery_condition }}!<i class="fas fa-truck p-2"></i>
                             </span>
                         </div>
-    
+
                     </div>
                 </div>
             </div>
         </div>
-    
+
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white">
             <a class="navbar-brand" href="{% url 'home' %}">FixIt.</a>
@@ -82,49 +83,40 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link active-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == '/' %}active-link{% endif %}"
+                            href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="{% url 'home' %}#about-section">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        <a class="nav-link {% if request.path == '/contact/' %}active-link{% endif %}"
+                            href="{% url 'contact' %}">Contact</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {% if request.get_full_path == '/products/' %}active-link{% endif %}"
+                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             Products
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Sort by Price</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Sort by
+                                Price</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Sort By Rating</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Sort By
+                                Rating</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Sort By Category</a>
+                            <a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Sort By
+                                Category</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'products' %}">All Products</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Offers
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">New Arrivals</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Deals</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Clearance</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">All Offers</a>
-                        </div>
-
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle {% if request.get_full_path == '/products/?category=electrical' or request.get_full_path == '/products/?category=gardening' or request.get_full_path == '/products/?category=bathroom' or request.get_full_path == '/products/?category=tools'  %}active-link{% endif %}"
+                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
                             Departments
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -141,8 +133,8 @@
 
                 <form class="form-inline my-2 my-lg-0" method="GET" action="{% url 'products' %}">
                     {% csrf_token %}
-                    <input class="form-control mr-sm-2 form-search" type="search" placeholder="Search products"
-                        name="q" id="query_id" aria-label="Search">
+                    <input class="form-control mr-sm-2 form-search" type="search" placeholder="Search products" name="q"
+                        id="query_id" aria-label="Search">
                     <button class="btn btn-outline-dark my-2 my-sm-0" type="submit"><i
                             class="bi bi-search"></i></button>
                 </form>
@@ -221,8 +213,9 @@
 
     {% block postloadjs %}
     <script>
-        $(document).ready(function(){
-          $('.toast').toast('show');
+        $(document).ready(function () {
+            $('.toast').toast({ delay: 3000});
+            $('.toast').toast('show');
         });
     </script>
     {% endblock %}
