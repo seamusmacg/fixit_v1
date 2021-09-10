@@ -31,7 +31,32 @@
             </div>
             <div class="col-12 col-lg-6">
                 <h3 class="profile-subheading">Order History</h3>
-                {{ orders }}
+                <div class="order-history table responsive">
+                    <table class="table">
+                        <thead>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Products</th>
+                            <th>Total</th>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr>
+                                <td>{{ order.order_number }}</td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-group list-group-flush"> 
+                                        {% for item in order.items.all %}
+                                        <li class="list-group-item">{{ item.product.name }} X {{ item.quantity }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>{{ order.overall_cost }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>

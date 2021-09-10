@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.conf import settings
 from products.models import Product
+from profiles.forms import ProfileForm
+from profiles.models import Profile
 from .models import Order, OrderItem
 
 from .forms import OrderForm
@@ -71,9 +73,26 @@ def view_checkout(request):
 
 
 def checkout_success(request, order_number):
-    save_info = request.session.get('save_info')
+    # save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order was processed successfully! Your order number is {order_number}, an email will be sent to {order.email}')
+
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=request.user)
+        order.user_profile = profile 
+        order.save()
+
+        profile_info = {
+            'default_phone': order.phone,
+            'default_country': order.country,
+            'default_postcode': order.postcode,
+            'default_town': order.town,
+            'default_address': order.address,
+        }
+
+        profile_form = ProfileForm(profile_info, instance=profile)
+        if profile_form.is_valid():
+            profile_form.save()
 
     if 'cart' in request.session:
         del request.session['cart']
