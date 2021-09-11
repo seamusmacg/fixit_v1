@@ -46,8 +46,6 @@ form.addEventListener('submit', function (ev) {
         'disabled': true
     });
     $('#pay-button').attr('disabled', true);
-    // If the client secret was rendered server-side as a data-secret attribute
-    // on the <form> element, you can retrieve it here by calling `form.dataset.secret`
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
             card: card,
@@ -62,7 +60,6 @@ form.addEventListener('submit', function (ev) {
             });
             $('#pay-button').attr('disabled', false);
         } else {
-            // The payment has been processed!
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();
             }

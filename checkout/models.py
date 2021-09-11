@@ -12,6 +12,7 @@ from profiles.models import Profile
 
 
 class Order(models.Model):
+    """Order model"""
     
     order_number = models.CharField(max_length=20, null=False, editable=False)
     user_profile = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True, related_name='orders')
@@ -28,9 +29,11 @@ class Order(models.Model):
     overall_cost = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
 
     def _create_order_number(self):
+        """Create order number"""
         return uuid.uuid4().hex.upper()
 
     def modify_total(self):
+        """Calculate/modify the total"""
         self.order_total = self.items.aggregate(Sum('item_total'))['item_total__sum'] or 0
         free_delivery = self.order_total > settings.FREE_DELIVERY_CONDITION 
         if free_delivery:
@@ -42,6 +45,7 @@ class Order(models.Model):
 
 
     def save(self, *args, **kwargs):
+        """Save order"""
         if not self.order_number:
             self.order_number = self._create_order_number()
         super(Order, self).save(*args, **kwargs)
@@ -55,12 +59,14 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
+    """Orderitem model"""
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey(Product, null=False, on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
     item_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
+        """Save Orderitem"""
 
         self.item_total = self.product.price * self.quantity
         super(OrderItem, self).save(*args, **kwargs)

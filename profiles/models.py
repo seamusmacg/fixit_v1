@@ -8,6 +8,7 @@ from django.dispatch import receiver
 # Create your models here.
 
 class Profile(models.Model):
+    """Profile Model"""
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone = models.CharField(max_length=18, null=False, blank=False)
@@ -23,6 +24,7 @@ class Profile(models.Model):
 
 @receiver(post_save, sender=User)
 def create_update(sender, instance, created, **kwargs):
+    """Save the profile to user"""
     if created:
         profile = Profile.objects.get_or_create(user=instance)
         profile.save()

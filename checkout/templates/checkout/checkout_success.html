@@ -2,15 +2,6 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 <!-- Order Confirmation Section -->
 <section class="bg-light">
@@ -55,8 +46,10 @@
         </div>
         <div class="row">
             <div class="col-12 pb-20">
-                <h2 class="text-center thanks-message">Thank you for choosing to shop with us, we really appreciate your business. </h2>
-                <h3 class="continue-shopping"><a href="{% url 'products' %}" class="continue-shopping">Continue Shopping<i class="fas fa-shopping-basket pl-2"></i></a></h3>
+                <h2 class="text-center thanks-message">Thank you for choosing to shop with us, we really appreciate your
+                    business. </h2>
+                <h3 class="continue-shopping"><a href="{% url 'products' %}" class="continue-shopping">Continue
+                        Shopping<i class="fas fa-shopping-basket pl-2"></i></a></h3>
             </div>
         </div>
 

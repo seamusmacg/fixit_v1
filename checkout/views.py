@@ -14,12 +14,12 @@ from cart.contexts import cart_contents
 import stripe
 
 def view_checkout(request):
+    """View that renders the checkout page"""
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     if request.method == 'POST':
         cart = request.session.get('cart', {})
-        print(cart)
         form_details = {
             'name': request.POST['name'],
             'email': request.POST['email'],
@@ -40,8 +40,6 @@ def view_checkout(request):
                     quantity=item_data,
                 )
                 order_item.save()
-
-            request.session['save_info'] = 'save_info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, "There's an error with the form! Please check if details are correct")
@@ -75,7 +73,7 @@ def view_checkout(request):
 
 
 def checkout_success(request, order_number):
-    # save_info = request.session.get('save_info')
+    """View that renders the checkout success page"""
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order was processed successfully! Your order number is {order_number}, an email will be sent to {order.email}')
 

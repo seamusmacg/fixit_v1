@@ -45,6 +45,15 @@ def add_cart(request, product_id):
 
 
 def remove_cart(request, product_id):
+    """View that removes products from cart
+
+    Args:
+        request (POST): POST request with product data
+        product_id (Number): ID (number) of product
+
+    Returns:
+        [GET request]: Redirects to cart page
+    """
 
     product = Product.objects.get(pk=product_id)
     cart =  request.session.get('cart', {})

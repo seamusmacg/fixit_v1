@@ -1,6 +1,6 @@
 Hi {{ order.name }},
 
-This a confirmation order for your recent FixIt order: {{ order_number }} .
+This is a confirmation order for your recent FixIt order: {{ order.order_number }} .
 
 Your order will be with you shortly. 
 

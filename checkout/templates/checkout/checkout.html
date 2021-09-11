@@ -2,15 +2,6 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
-
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
-
 {% block content %}
 <!-- Checkout Section -->
 <section class="bg-light">
@@ -72,7 +63,8 @@
 
         <div class="row">
             <div class="col-12">
-                <p class="font-weight-bold pb-10">In order to complete your order please complete the form below (Details will be saved to your profile)</p>
+                <p class="font-weight-bold pb-10">In order to complete your order please complete the form below
+                    (Details will be saved to your profile)</p>
                 <form action="{% url 'view_checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
@@ -103,20 +95,16 @@
                     </fieldset>
                     <fieldset class="px-3 mb-5">
                         <legend class="fieldset-label pb-1">Payment </legend>
-                        <!-- Stripe Card Element -->
 
                         <div id="card-element" class="mb-3">
-                            <!-- Elements will create input elements here -->
                         </div>
-
-                        <!-- We'll put the error messages in this element -->
-                        <div id="card-errors" role="alert"></div>
-
-                        <!-- Display Errors -->
+                        <div id="card-errors" role="alert">
+                        </div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                         <span class="d-block adjust-bag pt-2"><a href="{% url 'view_cart' %}">Adjust Bag</a></span>
                         <br>
-                        <span class="d-block pt-10"><button type="submit" id="pay-button" class="btn btn-dark btn-lg" href>Complete
+                        <span class="d-block pt-10"><button type="submit" id="pay-button" class="btn btn-dark btn-lg"
+                                href>Complete
                                 Order<i class="fas fa-lock pl-2"></i></button></span>
                         <br>
                         <span class="d-block payemnt-message"><strong>${{ overall_cost|floatformat:2 }}</strong> will be

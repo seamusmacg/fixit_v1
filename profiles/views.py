@@ -7,6 +7,7 @@ from .models import Profile
 # Create your views here.
 
 def get_profile(request):
+    """View that renders the user profile"""
     profile = get_object_or_404(Profile, user=request.user)
 
     if request.method == 'POST':
