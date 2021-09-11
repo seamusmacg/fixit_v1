@@ -90,13 +90,13 @@
 </section>
 
 {% if not cart_list %}
-<!-- Other Departments Section -->
+<!-- Categories Section -->
 <section>
-    <h2 class="text-center departments-header">Explore Other Departments</h2>
+    <h2 class="text-center departments-header">Shop by Department</h2>
     <div class="container-fluid">
         <div class="card-deck">
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/electrical.jpg" alt="Card image cap">
+                <img class="card-img-top electrical-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-black font-weight-bold px-0 display-2">Electrical</h3>
                     <a class="btn btn-dark btn-sm" href="{% url 'products' %}?category=electrical">Shop Now<i
@@ -104,7 +104,7 @@
                 </div>
             </div>
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/gardening.jpg" alt="Card image cap">
+                <img class="card-img-top gardening-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-white font-weight-bold px-0 display-2">Gardening</h3>
                     <a class="btn btn-light btn-sm" href="{% url 'products' %}?category=gardening">Shop Now<i
@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/bathroom.jpg" alt="Card image cap">
+                <img class="card-img-top bathroom-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-black font-weight-bold px-0 display-2">Bathroom</h3>
                     <a class="btn btn-dark btn-sm" href="{% url 'products' %}?category=bathroom">Shop Now<i
@@ -120,7 +120,7 @@
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="/media/tools.jpg" alt="Card image cap">
+                <img class="card-img-top tools-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-white font-weight-bold px-0 display-2">Tools</h3>
                     <a class="btn btn-light btn-sm" href="{% url 'products' %}?category=tools">Shop Now<i
