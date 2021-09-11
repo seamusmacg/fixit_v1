@@ -395,3 +395,15 @@ img.electrical-img {
     content:url('/media/electrical.jpg');
 }
 
+img.gardening-img {
+    content:url('/media/gardening.jpg');
+}
+
+img.bathroom-img {
+    content:url('/media/bathroom.jpg');
+}
+
+img.tools-img {
+    content:url('/media/tools.jpg');
+}
+
