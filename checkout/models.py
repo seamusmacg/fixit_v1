@@ -30,7 +30,7 @@ class Order(models.Model):
 
     def _create_order_number(self):
         """Create order number"""
-        return uuid.uuid4()[:10].hex.upper()
+        return uuid.uuid4().hex.upper()
 
     def modify_total(self):
         """Calculate/modify the total"""
