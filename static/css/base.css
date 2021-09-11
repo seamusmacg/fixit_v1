@@ -391,5 +391,7 @@ a.form-link:hover {
 /* End Stripe Styling */
 
 
-
+img.electrical-img {
+    content:url('/media/electrical.jpg');
+}
 
