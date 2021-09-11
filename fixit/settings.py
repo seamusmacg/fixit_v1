@@ -194,8 +194,6 @@ if 'USE_AWS' in os.environ:
 
 
 
-
-
 # Stripe
 FREE_DELIVERY_CONDITION = 20
 DELIVERY_PERCENTAGE = 10
