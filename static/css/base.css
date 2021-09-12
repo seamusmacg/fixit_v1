@@ -3,13 +3,13 @@
 }
 
 /* https://stackoverflow.com/questions/4617872/white-space-showing-up-on-right-side-of-page-when-background-image-should-extend */
-html,body
-{
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 .fa-truck {
@@ -363,25 +363,25 @@ a.form-link:hover {
 /* Stripe CSS */
 .StripeElement,
 .stripe-style-input {
-  box-sizing: border-box;
-  height: 40px;
-  padding: 10px 12px;
-  border: 1px solid transparent;
-  border-radius: 0px;
-  background-color: white;
-  box-shadow: 0 1px 3px 0 #e6ebf1;
-  -webkit-transition: box-shadow 150ms ease;
-  transition: box-shadow 150ms ease;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
 }
 
 .StripeElement--focus,
 .stripe-style-input:focus,
 .stripe-style-input:active {
-  box-shadow: 0 1px 3px 0 #cfd7df;
+    box-shadow: 0 1px 3px 0 #cfd7df;
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+    background-color: #fefde5 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -392,18 +392,17 @@ a.form-link:hover {
 
 
 img.electrical-img {
-    content:url('/media/electrical.jpg');
+    content: url('/media/electrical.jpg');
 }
 
 img.gardening-img {
-    content:url('/media/gardening.jpg');
+    content: url('/media/gardening.jpg');
 }
 
 img.bathroom-img {
-    content:url('/media/bathroom.jpg');
+    content: url('/media/bathroom.jpg');
 }
 
 img.tools-img {
-    content:url('/media/tools.jpg');
+    content: url('/media/tools.jpg');
 }
-
