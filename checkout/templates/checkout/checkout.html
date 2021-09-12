@@ -80,12 +80,7 @@
                         {{ order_form.town | as_crispy_field }}
                         {{ order_form.address | as_crispy_field }}
                         <div class="form-check">
-                            {% if user.authenticated %}
-                            <input class="form-check-input" type="checkbox" value="" id="save-info">
-                            <label class="form-check-label" for="save-info">
-                                Add details to your profile
-                            </label>
-                            {% else %}
+                            {% if not user.authenticated %}
                             <label class="form-check-label pt-8" for="save-info">
                                 <a href="{% url 'account_signup' %}">Signup</a> or
                                 <a href="{% url 'account_login' %}">Login</a> to save details
