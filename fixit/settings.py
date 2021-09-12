@@ -143,8 +143,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-X_FRAME_OPTIONS = 'SAMEORIGIN' 
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
