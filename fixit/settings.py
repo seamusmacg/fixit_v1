@@ -24,10 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = 'DEVELOPMENT' in os.environ
-# DEBUG = os.getenv("DEVELOPMENT", False)
-
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
 
 ALLOWED_HOSTS = ['fix-it.herokuapp.com', '127.0.0.1']
@@ -100,7 +97,6 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
@@ -127,11 +123,6 @@ else:
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-# DATABASES = {
-#         'default': dj_database_url.parse('postgres://xfqnhhnzuvcbzz:1ce71f452ac9d2e4b42a5916825f8d9f8b951e306cd4713c94e9b6ca7aa020f1@ec2-63-33-14-215.eu-west-1.compute.amazonaws.com:5432/d71fp45qmn66ge')
-#     }
-
 
 
 # Password validation
@@ -210,12 +201,26 @@ DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-DEFAULT_FROM_EMAIL = 'fixit@example.com'
+
 
 
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'fixit@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = os.environ('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ('EMAIL_HOST_PASS')
+    EMAIL_HOST_EMAIL = os.environ('EMAIL_HOST_USER')
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

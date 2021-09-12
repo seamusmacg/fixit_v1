@@ -9,7 +9,6 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     """Profile Model"""
-
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     default_phone = models.CharField(max_length=18, null=False, blank=False)
     default_postcode = models.CharField(max_length=15, null=True, blank=True)
