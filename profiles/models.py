@@ -27,11 +27,8 @@ def create_update(sender, instance, created, **kwargs):
     if created:
         profile = Profile.objects.create(user=instance)
         profile.save()
-    # Existing users: just save the profile
     instance.profile.save()
-    # if created:
-    #     profile = Profile.objects.get_or_create(user=instance)
-    #     profile.save()
+
 
 
 

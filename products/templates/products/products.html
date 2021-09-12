@@ -21,7 +21,8 @@
     <div class="row text-center justify-content-center category-btn">
         <div class="col-12">
             {% for category in current_categories %}
-            <a class="btn btn-outline-secondary" href="{% url 'products' %}?category={{ category.name }}">{{ category.name|title }}</a>
+            <a class="btn btn-outline-secondary"
+                href="{% url 'products' %}?category={{ category.name }}">{{ category.name|title }}</a>
             {% endfor %}
         </div>
     </div>
@@ -65,13 +66,15 @@
             <span><a href="{% url 'products' %}" class="products-home">Products Home</a></span>
             {% endif %}
             {% if products.count == 1 %}
-            {{ products.count }} Product found{% if search_term %} for search term <span class="search-term">{{ search_term }}</span>{% endif %} 
+            {{ products.count }} Product found{% if search_term %} for search term <span
+                class="search-term">{{ search_term }}</span>{% endif %}
             {% else %}
-            {{ products.count }} Products Found{% if search_term %} for search term <span class="search-term">{{ search_term }}</span>{% endif %}
+            {{ products.count }} Products Found{% if search_term %} for search term <span
+                class="search-term">{{ search_term }}</span>{% endif %}
             {% endif %}
         </p>
     </div>
- 
+
 
 
 
@@ -107,7 +110,7 @@
                             </div>
                             <!-- Price -->
                             <div class="price-card">
-                                €{{ product.price }}
+                                ${{ product.price }}
                             </div>
                         </div>
                     </div>
@@ -134,41 +137,45 @@
     {% endif %}
 </section>
 
-<!-- Shop By Department -->
+<!-- Categories Section -->
 <section>
     <h2 class="text-center departments-header">Shop by Department</h2>
     <div class="container-fluid">
         <div class="card-deck">
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/electrical.jpg" alt="Card image cap">
+                <img class="card-img-top electrical-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-black font-weight-bold px-0 display-2">Electrical</h3>
-                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                    <a class="btn btn-dark btn-sm" href="{% url 'products' %}?category=electrical">Shop Now<i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/gardening.jpg" alt="Card image cap">
+                <img class="card-img-top gardening-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-white font-weight-bold px-0 display-2">Gardening</h3>
-                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                    <a class="btn btn-light btn-sm" href="{% url 'products' %}?category=gardening">Shop Now<i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <div class="card categories-card">
-                <img class="card-img-top" src="/media/bathroom.jpg" alt="Card image cap">
+                <img class="card-img-top bathroom-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-black font-weight-bold px-0 display-2">Bathroom</h3>
-                    <a class="btn btn-dark btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                    <a class="btn btn-dark btn-sm" href="{% url 'products' %}?category=bathroom">Shop Now<i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             <div class="card">
-                <img class="card-img-top" src="/media/tools.jpg" alt="Card image cap">
+                <img class="card-img-top tools-img" alt="Card image cap">
                 <div class="card-img-overlay">
                     <h3 class="card-title text-white font-weight-bold px-0 display-2">Tools</h3>
-                    <a class="btn btn-light btn-sm" href="#">Shop Now<i class="bi bi-arrow-right"></i></a>
+                    <a class="btn btn-light btn-sm" href="{% url 'products' %}?category=tools">Shop Now<i
+                            class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endblock %}
 
+{% endblock %}
