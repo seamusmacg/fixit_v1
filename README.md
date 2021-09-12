@@ -61,49 +61,55 @@ The site is presented in a linear fashion with information presented on scrollin
 
 I used [Balsamiq](https://balsamiq.com) to create a wireframe for each event presented to the user. 
 
-- [Home Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-home.png)
-- [Catalogue Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-catalogue.png)
-- [Register Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-register.png)
-- [Login Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-login.png)
-- [Submit Book Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-submit.png)
-- [Profile Page](https://github.com/seamusmacg/readreview/blob/main/static/images/readreview-profile.png)
+- [Home Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/home-wireframe.png)
+- [Products Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/products-wireframe.png)
+- [Authentication Pages](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/authentication-wireframe.png)
+- [Contact Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/contact-wireframe.png)
+- [Profile Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/profile-wireframe.png)
+- [Cart Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/cart-wireframe.png)
+- [Checkout Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/checkout-wireframe.png)
+- [Success Page](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/success-wireframe.png)
 
 I maintained a consistent structure across the pages with many pages sharing similar features. 
 
 ### Colour 
 
-- ![#00001](https://via.placeholder.com/15/00001/000000?text=+) `#00001`
-- ![#722F37](https://via.placeholder.com/15/722F37/000000?text=+) `#722F37`
-- ![#a27840](https://via.placeholder.com/15/a27840/000000?text=+) `#a27840`
-- ![#8d5205](https://via.placeholder.com/15/8d5205/000000?text=+) `#8d5205`
+- ![#bababa](https://via.placeholder.com/15/00001/000000?text=+) `#bababa`
+- ![#eebe58](https://via.placeholder.com/15/eebe58/000000?text=+) `#eebe58`
 - ![#FF0000](https://via.placeholder.com/15/FF0000/000000?text=+) `#FF0000`
-- ![#008000](https://via.placeholder.com/15/008000/000000?text=+) `#008000`
+- ![#1D9157](https://via.placeholder.com/15/1D9157/000000?text=+) `#1D9157`
+- ![#fc5647](https://via.placeholder.com/15/fc5647/000000?text=+) `#fc5647`
+- ![#000000](https://via.placeholder.com/15/000000/000000?text=+) `#000000`
 - ![#FFFFFF](https://via.placeholder.com/15/FFFFFF/000000?text=+) `#FFFFFF`
+- ![#f7584a](https://via.placeholder.com/15/f7584a/000000?text=+) `#f7584a`
+- ![#A39021](https://via.placeholder.com/15/A39021/000000?text=+) `#A39021`
+- ![#666262](https://via.placeholder.com/15/666262/000000?text=+) `#666262`
+- ![#807A7A](https://via.placeholder.com/15/807A7A/000000?text=+) `#807A7A`
+- ![#d4af37](https://via.placeholder.com/15/d4af37/000000?text=+) `#d4af37`
 
 The color theme I chose was inspired by decorative books you often see in libraries. These colors are usually wine red, navy/blue, gold and silver. I used an assortment of these colors throughout the site to recreate that library look and feel.
 
-Validation messages are displayed in the natural colours of green for success and red for errors.
+The color theme I chose was inspired by this bootstrap this [bootstrap theme](https://themes.getbootstrap.com/preview/?theme_id=37702) which combines a combination of bright and dark colors placed against a light background that provides a good contrast. Overall this creates a aesthetically pleasing site for the user. 
+
+Validation messages are displayed in the natural colours of green for success, red for errors and yellow for information.
 
 ### Typography
 
-[Goudy Bookletter 1911](https://fonts.google.com/specimen/Goudy+Bookletter+1911) - used for all elements on the site.
+[Jost](https://fonts.google.com/specimen/Jost) - used for all elements on the site.
 
-I chose this font as I thought it matched well with the decorative book/library theme I was aiming for.
+I chose this font as I thought its sharpness and narrowness added a professional design to the overall site.
 
 ## Technologies Libraries and Frameworks
 
 - !["HTML5 Badge"](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white) - [HTML 5](https://www.w3.org/TR/html52/)  is a markup language that was used displaying content of the site.
 - !["CSS Badge"](https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white) - [CSS](https://www.w3.org/standards/webdesign/htmlcss.html) is a style sheet language used for presenting/styling the content of the site . 
-- !["Materialize CSS Badge"](https://img.shields.io/badge/Materialize-CSS-red) - [Materialize CSS](https://materializecss.com/getting-started.html/) Materialize CSS is a UI component library which is created with CSS, JavaScript and HTML. It is created and designed by Google. Materialize CSS is also known as Material Design. It is a design language which combines the classic principles of successful design along with innovation and technology. I used a Materialize parallax template for the base structure of site and for many of the components on the site.
 - !["Javascript Badge"](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) - [Javascript](https://www.javascript.com/) is a scripting language that was used to provide interactivity to the site.
 - !["Jquery"](https://img.shields.io/badge/jquery%20-%230769AD.svg?&style=for-the-badge&logo=jquery&logoColor=white) - [Jquery](https://jquery.com/) is a Javascript library that was used for HTML DOM tree traversal and manipulation on the site.
-- !["Google Fonts"](https://img.shields.io/badge/-Google%20Fonts-red?logo=Google) - [Google Fonts](https://fonts.google.com/) is a library of free licensed font families that was used to import the Goudy Bookletter 1911 font.
+- !["Google Fonts"](https://img.shields.io/badge/-Google%20Fonts-red?logo=Google) - [Google Fonts](https://fonts.google.com/) is a library of free licensed font families that was used to import the Jost font.
 - !["Font Awesome Badge"](https://img.shields.io/badge/Font_Awesome-5.14-339AF0?logo=font-awesome) - [Font Awesome](https://fontawesome.com/) is a font and icon toolkit that was used to generate the icons used throughout the site. 
 - !["Git Badge"](https://img.shields.io/badge/git%20-%23F05033.svg?&style=for-the-badge&logo=git&logoColor=white) - [Git](https://git-scm.com) is an open source distributed version control system that was used to track any changes made to the source code. 
 - !["Github Badge"](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) - [Github](https://github.com/) is a platform for hosting software development and version control using Git. 
-- !["Python Badge"](https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white) - [Python](https://www.python.org/) is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation. Python was used along with various libraries to access the database and present information to the user.
-- !["Flask Badge"](https://img.shields.io/badge/flask-%23000.svg?&style=for-the-badge&logo=flask&logoColor=white) - [Flask](https://flask.palletsprojects.com/en/1.1.x/) is a micro web framework written in Python that utilizes other libraries like Werkzeug and Jinja. Used to dynamically create the HTML pages and apply logic throughout the site.
-- !["MongoDB Badge"](https://img.shields.io/badge/MongoDB-%234ea94b.svg?&style=for-the-badge&logo=mongodb&logoColor=white) - [MongoDB](https://www.mongodb.com/) is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB was used as the primary database for storing the sites data. 
+- !["Python Badge"](https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white) - [Python](https://www.python.org/) is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation. Python was used along with various libraries to access the database and present information to the user. 
 - !["Heroku Badge"](https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white) - [Heroku](https://www.heroku.com/)  is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Heroku was used for deploying and hosting the site.
 
 ## Resources and Tools
