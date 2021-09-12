@@ -111,6 +111,9 @@ I chose this font as I thought its sharpness and narrowness added a professional
 - !["Github Badge"](https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white) - [Github](https://github.com/) is a platform for hosting software development and version control using Git. 
 - !["Python Badge"](https://img.shields.io/badge/python-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white) - [Python](https://www.python.org/) is an interpreted high-level general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant indentation. Python was used along with various libraries to access the database and present information to the user. 
 - !["Heroku Badge"](https://img.shields.io/badge/heroku-%23430098.svg?&style=for-the-badge&logo=heroku&logoColor=white) - [Heroku](https://www.heroku.com/)  is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Heroku was used for deploying and hosting the site.
+- !["Django Badge"](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=green) - [Django](https://www.djangoproject.com/) Django is a high-level Python web framework that encourages rapid development and clean, pragmatic design. Built by experienced developers, it takes care of much of the hassle of web development, so you can focus on writing your app without needing to reinvent the wheel. It’s free and open source. Primary framework used for building the site. 
+- !["Bootstrap Badge"](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) - [Bootstrap](https://getbootstrap.com/) Bootstrap is a free and open-source CSS framework directed at responsive, mobile-first front-end web development. It contains CSS- and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components. Used for styling and building front end structure.
+- !["AWS Badge"](https://img.shields.io/badge/Amazon_AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) - [Amazon AWS](https://aws.amazon.com/) Amazon Web Services, Inc. is a subsidiary of Amazon providing on-demand cloud computing platforms and APIs to individuals, companies, and governments, on a metered pay-as-you-go basis. AWS was used to store/render static and media files.
 
 ## Resources and Tools
 
@@ -125,23 +128,20 @@ I chose this font as I thought its sharpness and narrowness added a professional
 
 ## Testing
 
-The application was built using [VS Code](https://code.visualstudio.com). Flask was used to run the site on localhost and to conduct testing throughout the development process.
+The application was built using [VS Code](https://code.visualstudio.com). Django was used to run the site on localhost and to conduct testing throughout the development process.
 
 ### Validation 
 
-- I validated the HTML source code using the [HTML Validation Service](https://validator.w3.org), there was a projection attribute in a link element which has been deprecated. I removed this.
-- Removed role from nav element as unnecessary.
-- Removed unused quotation mark from a tag.
+- I validated the HTML source code using the [HTML Validation Service](https://validator.w3.org). Main errors: there were errors related to image tag attribute source. Image source was placed in CSS file as they were not properly rendering in src attribute.
 - The CSS passed without any errors - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
 ### Manual Testing 
 
-Testing was conducted on the finished application using Flask and Chrome Developer Tools. I also tested the application on different browsers. A full report on the manual testing process that tests functionality, usability, responsiveness and performance is available [here](https://github.com/seamusmacg/readreview/blob/main/testing/TESTING.md).
+Testing was conducted on the finished application using Django in VS Code and with Chrome Developer Tools. I also tested the application on different browsers. A full report on the manual testing process that tests functionality, usability, responsiveness and performance is available [here]().
 
 ## Major Bugs
-- Unable to create a routes.py file in User directory. **Solution:** Delete routes.py for user and add route in main app.py
-- Getting error "TypeError: Object of type 'ObjectId' is not JSON serializable" when creating a new user. **Solution:** create a JSON Encoder class
-- Unable to prevent modal trigger when review form is empty. **Solution:** Create jquery to handle to click event and validate form.
+- There was issues loading exported database to Heroku Postgres - fixed this by changing the encoding of JSON file to UTF-8
+- Bug "Value too long for type character varying(20)" - Fixed this by slicing the length of the order number to 10 characters in length in the Order Model. 
 
 ## Deployment
 
@@ -152,9 +152,9 @@ The application was deployed through Heroku pages as follows:
 3. Created a repository on Github with same name. 
 4. Staged and committed all the files with appropriate messages.
 5. Manually deployed on Heroku
-5. In Deploy section on Heroku, I retrieved the [live URL](https://read-review-project.herokuapp.com/).
+5. In Deploy section on Heroku, I retrieved the [live URL](https://fix-it.herokuapp.com/).
 6. To run the project on your own machine: 
-    - **Step 1**: Go to the repository - https://github.com/seamusmacg/readreview 
+    - **Step 1**: Go to the repository - https://github.com/seamusmacg/fixit_v1
     - **Step 2**: Click "Code" and copy URL 
     - **Step 3**: Open a terminal or CLI on your machine.
     - **Step 4**: Navigate to the directory you wish to locate the repository. 
@@ -163,12 +163,12 @@ The application was deployed through Heroku pages as follows:
 
 
 ## Credits
-- [Materialize](https://materializecss.com/getting-started.html) Parallax Template used for base site structure
-- [Pexels](https://www.pexels.com/search/bookshelf/) Home page image sourced here
-- [Stack Overflow Answer](https://stackoverflow.com/questions/44942347/change-the-default-color-of-materialize-css-input-fields-i-have-attached-screen) - Change colour of materialize form validation
-- [Stack Overflow Answer](https://stackoverflow.com/questions/61845621/how-to-change-color-of-materialize-multiple-select-checkbox) - Change colour of materialize checkbox
-- [Quabr](http://5.9.10.113/65535560/typeerror-object-of-type-objectid-is-not-json-serializable) - JSON Encoder class that converts ObjectId to string. 
+- [Bootstrap Theme](https://themes.getbootstrap.com/preview/?theme_id=37702) I used this Shopper E-Commerce template for inspiration and design/structural ideas
+- [Unsplash](https://unsplash.com/) All images on the site including product images and background images sourced here
+- [Django Documentation](https://docs.djangoproject.com/en/3.2/) - Used throughout project as reference 
 - [W3schools](https://www.w3schools.com/)
 - [CSS-Tricks](https://css-tricks.com/)
-- [Flask User Login Tutorial](https://github.com/LukePeters/User-Login-System-Tutorial) - Used this tutorial for building login/authentication system 
-- I would like to thank my mentor Adegbenga Adeye for all his guidance and help throughout this project
+- [Bootstrap](https://getbootstrap.com/)
+- [Udemy Django Course](https://www.udemy.com/course/python-django-2021-complete-course/) - Supplementary django course used for reference
+- [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/) - Used this Code Institute tutorial as the guide and how to for my own project 
+- I would like to thank my mentor Adegbenga Adeye for all his guidance and help throughout this project and the duration of the course
