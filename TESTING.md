@@ -48,6 +48,8 @@
 |**Shopping cart Back To Products Link** | Take user to products page | Yes | N/A |
 |**Checkout Adjust Bag** | Take user to cart page | Yes | N/A |
 |**Checkout Complete Order Button** | Display success page or error if error occurs | Yes | N/A |
+|**Checkout Sign Up link** | Take user to Sign Up page | Yes | N/A |
+|**Checkout Login Up link** | Take user to Login page | Yes | N/A |
 |**Back To Home Link with Home Icon** | Take user to home page | Yes | N/A |
 |**Contact Send Button** | Submit form and return success page to user | Yes | N/A |
 |**Search Button** | Submit query and return products page with the products containing query string in product name or return an error message | Yes | N/A |
@@ -85,7 +87,7 @@ Callout Section:
 
 !["Callout Section with link to products page"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/callout.PNG)
 
-Catalogue Section: 
+Products Section: 
 
 !["List of products shown to user"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/products.PNG)
 
