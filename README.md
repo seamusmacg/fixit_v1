@@ -1,4 +1,4 @@
-# [ReadReview Book Review Application](https://fix-it.herokuapp.com/)
+# [FixIt DIY E-Commerce](https://fix-it.herokuapp.com/)
 
 !["This application was tested for responsiveness on multiple devices"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/home-page.PNG)
 
