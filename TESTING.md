@@ -50,7 +50,7 @@
 |**Checkout Complete Order Button** | Display success page or error if error occurs | Yes | N/A |
 |**Back To Home Link with Home Icon** | Take user to home page | Yes | N/A |
 |**Contact Send Button** | Submit form and return success page to user | Yes | N/A |
-|**Search Button** | Submit query and return products page with products containing query string or return an error message | Yes | N/A |
+|**Search Button** | Submit query and return products page with the products containing query string in product name or return an error message | Yes | N/A |
 
 
 
@@ -83,11 +83,11 @@ The user is presented with a link to the products page (Shop Now Button) immedia
 
 Callout Section: 
 
-!["Callout Section with link to products page"]()
+!["Callout Section with link to products page"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/callout.PNG)
 
 Catalogue Section: 
 
-!["List of products shown to user"]()
+!["List of products shown to user"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/products.PNG)
 
 
 ### User Story #2
@@ -96,19 +96,20 @@ Catalogue Section:
 
 Each registered user's profile is saved with the details they enter at checkout - this can be edited and updated in the profile page. 
 
-!["Profile page"]()
+!["Profile page"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/profile.PNG)
 
 
 
 ## Responsiveness
 
-The application was tested for responsiveness on multiple devices and browser using Developer Tools. Media queries and Materialize CSS  were used to keep the device responsive across different devices.
+The application was tested for responsiveness on multiple devices and browser using Developer Tools. Media queries and Bootstrap were used to keep the device responsive across different devices.
 
 | Component | Intended Result | Works as intended? | Fix |
 | --------- | --------------- | ------------------ | --- |
 | Text | Should be readable and clear for each screen size | Yes | N/A |
 | Images | Should be readable and clear for each screen size and not stretched/distorted | Yes | N/A |
 | Icons | Maintain ratio at smaller sizes and not be stretched/distorted | Yes | N/A |
+| Tables | Maintain ratio and structure at smaller sizes | Yes | N/A |
 | Layout | Sections should be structured properly with proper spacing between features | Yes | N/A |
 | Functionality | Buttons should work across screen sizes | Yes | N/A |
 
@@ -116,8 +117,8 @@ The application was tested for responsiveness on multiple devices and browser us
 
 I ran the [Lighthouse](https://developers.google.com/web/tools/lighthouse/) testing tool for both mobile and desktop to check the quality and performance of the site pages. The site received relatively good ratings in performance, accessibility, Best Practices and SEO ranging from 89 - 90. 
 
-Example Report for Submit Book Page:
-!["Lighthouse Report"]()
+Example Report:
+!["Lighthouse Report"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/lighthouse.PNG)
 
 ## Heroku
 
