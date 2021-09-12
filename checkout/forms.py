@@ -4,7 +4,7 @@ from  .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('name', 'email', 'phone', 'address', 'town', 'postcode',)
+        fields = ('name', 'email', 'phone', 'address', 'town', 'postcode', 'country',)
         
     def __init__(self, *args, **kwargs):
         """Placeholders and classes"""
@@ -13,6 +13,7 @@ class OrderForm(forms.ModelForm):
             'name': 'Full Name',
             'email': 'Email Address',
             'phone': 'Phone Number',
+            'country': 'Country',
             'postcode': 'Postal Code',
             'town': 'Town or City',
             'address': 'Street Address',
