@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Contact Form Section -->
+<section class="bg-light">
+    <div class="container">
+        <h1 class="text-center contact-heading">{{ blogpost.title }}</h1>
+        {% if blogpost.author.first_name|length > 0 %}
+        <small>Authored By: {{ blogpost.author.first_name }} {{ blogpost.author.last_name }} (Administrator Account)</small>
+        {% else %}
+        <small>Authored By: {{ blogpost.author }}</small>
+        {% endif %}
+        <div>
+            <p>{{ blogpost.body }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

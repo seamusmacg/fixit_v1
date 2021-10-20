@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Contact Form Section -->
+<section class="bg-light">
+    <div class="container">
+        <h1 class="text-center contact-heading">Blog</h1>
+        <ul>
+            {% for post in object_list %}
+            {% if post.author.first_name|length > 0 %}
+            <li><a href="{% url 'blog-detail' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }} {{ post.author.last_name }} (Administrator Account)<br />
+                {{ post.body }}</li>
+            {% else %}
+            <li>{{ post.title }} - {{ post.author|title }} <br />
+                {{ post.body }}</li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}
