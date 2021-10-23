@@ -4,16 +4,16 @@
 
 
 {% block content %}
-<!-- Post Blog Section -->
+<!-- Edit Blog Section -->
 <section class="bg-light">
     <div class="container">
-        <h1 class="text-center contact-heading">New Blog</h1>
+        <h1 class="text-center contact-heading">Edit Blog</h1>
 
         <form method="POST">
             {% csrf_token %}
             {{ form|crispy }}
             <div class="pt-3 pb-5">
-                <button type="submit" class="btn btn-outline-success btn-lg">Submit</button>
+                <button type="submit" class="btn btn-outline-success btn-lg">Update</button>
             </div>
         </form>
     </div>

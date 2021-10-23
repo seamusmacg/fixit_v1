@@ -16,10 +16,10 @@
             <small class="font-italic text-info">Authored By: {{ blogpost.author.first_name }}
                 {{ blogpost.author.last_name }} (Administrator Account)</small>
         </div>
-        <div class="pt-2 pb-5">
+        <div class="pt-3 pb-5">
             <a class="btn btn-dark" href="{% url 'blog' %}" role="button"><i class="fas fa-arrow-left pr-1"></i>Back</a>
             {% if request.user.is_superuser %}
-            <a class="btn btn-info" href="#" role="button">Edit</a>
+            <a class="btn btn-info" href="{% url 'edit-blog' blogpost.pk %}" role="button">Edit</a>
             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">
                 Delete
             </button>

@@ -1,5 +1,6 @@
+from django.http import request
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .models import BlogPost
 from django.contrib import messages
 
@@ -22,4 +23,11 @@ class AddBlog(CreateView):
     model = BlogPost
     template_name = 'blog/write_blog.html'
     fields = '__all__'
+
+
+class EditBlog(UpdateView):
+    model = BlogPost
+    template_name = 'blog/edit_blog.html'
+    fields = '__all__'
+
 
