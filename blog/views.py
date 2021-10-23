@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import BlogPost
+from django.contrib import messages
 
 # Create your views here.
 
@@ -15,3 +16,10 @@ class MainBlog(ListView):
 class BlogDetail(DetailView):
     model = BlogPost
     template_name = 'blog/blog_detail.html'
+
+
+class AddBlog(CreateView):
+    model = BlogPost
+    template_name = 'blog/write_blog.html'
+    fields = '__all__'
+

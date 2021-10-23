@@ -9,14 +9,14 @@
         <h1 class="text-center contact-heading">{{ blogpost.title }}</h1>
         {% if blogpost.author.first_name|length > 0 %}
         {% else %}
-        <small>Authored By: {{ blogpost.author }}</small>
+        <small>Authored By: {{ blogpost.author|title }}</small>
         {% endif %}
         <div>
             <p class="text-justify">{{ blogpost.body }}</p>
             <small class="font-italic text-info">Authored By: {{ blogpost.author.first_name }}
                 {{ blogpost.author.last_name }} (Administrator Account)</small>
         </div>
-        <div class="pt-2">
+        <div class="pt-2 pb-5">
             <a class="btn btn-dark" href="{% url 'blog' %}" role="button"><i class="fas fa-arrow-left pr-1"></i>Back</a>
             {% if request.user.is_superuser %}
             <a class="btn btn-info" href="#" role="button">Edit</a>
