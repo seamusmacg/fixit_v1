@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 # from . import views
-from .views import MainBlog, BlogDetail, AddBlog, EditBlog
+from .views import MainBlog, BlogDetail, AddBlog, EditBlog, DeleteBlog
 
 urlpatterns = [
     # path('', views.blog, name='blog'),
@@ -10,5 +10,6 @@ urlpatterns = [
     path('article/<int:pk>', BlogDetail.as_view(), name="blog-detail"),
     path('write_blog/', AddBlog.as_view(), name="write-blog"),
     path('article/edit/<int:pk>', EditBlog.as_view(), name="edit-blog"),
+    path('article/<int:pk>/delete', DeleteBlog.as_view(), name="delete-blog"),
    
 ]
