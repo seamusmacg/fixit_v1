@@ -10,12 +10,12 @@
        
             <p class="text-justify">{{ blogpost.body|safe }}</p>
             {% if blogpost.author.first_name|length > 0 %}
-            <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ blogpost.category }}</a></small>
+            <!-- <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ blogpost.category }}</a></small> -->
             <small class="font-italic text-info">Authored By: {{ blogpost.author.first_name }}
                 {{ blogpost.author.last_name }} (Administrator Account)</small>
             <small class="font-italic text-info">Date: {{ blogpost.created_date }}</small>
             {% else %}
-            <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ blogpost.category }}</a></small>
+            <!-- <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ blogpost.category }}</a></small> -->
             <small class="font-italic font-weight-bold text-info">Authored By: {{ blogpost.author|title }}</small>
             <small class="font-italic text-info d-block">Date: {{ blogpost.created_date }}</small>
             {% endif %}
