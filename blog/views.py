@@ -13,7 +13,7 @@ from django.urls import reverse_lazy
 class MainBlog(ListView):
     model = BlogPost
     template_name = 'blog/blog.html'
-    ordering = ['-id']
+    ordering = ['-created_date']
 
 
 class BlogDetail(DetailView):
