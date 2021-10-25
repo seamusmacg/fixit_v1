@@ -13,6 +13,7 @@
                 class="contact-fields">{{ post.title }} - {{ post.created_date }}</a></h2>
         <p class="text-justify">{{ post.body|truncatewords:100|safe }} <a href="{% url 'blog-detail' post.pk %}"
                 class="text-info">Read full blog</a></p>
+        <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ post.category }}</a></small>
         <small class="font-italic text-info">Authored By: {{ post.author.first_name }} {{ post.author.last_name }}
             (Administrator Account)</small>
         <div class="pt-2">
@@ -23,10 +24,11 @@
         </div>
         <hr>
         {% else %}
-        <h2 class="text-center"><a href="{% url 'blog-detail' post.pk %}" class="contact-fields">{{ post.title }}</a>
+        <h2 class="text-center"><a href="{% url 'blog-detail' post.pk %}" class="contact-fields">{{ post.title }} - {{ post.created_date }}</a>
         </h2>
         <p class="text-justify">{{ post.body|truncatewords:100|safe }}<a href="{% url 'blog-detail' post.pk %}"
                 class="text-info">Read full blog</a></p>
+        <small class="font-italic font-weight-bold text-success d-block">Category: <a href="" class="text-success">{{ post.category }}</a></small>
         <small class="font-italic text-info">Authored By: {{ post.author|title }} </small>
         <div class="pt-2">
             {% if request.user.is_superuser %}
