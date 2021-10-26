@@ -5,6 +5,7 @@ from datetime import datetime, date
 
 
 class BlogPost(models.Model):
+    
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
