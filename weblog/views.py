@@ -7,9 +7,6 @@ from django.urls import reverse_lazy
 
 # Create your views here.
 
-# def blog(request):
-#     return render(request, 'blog/blog.html')
-
 class MainWeBlog(ListView):
     model = Post
     template_name = 'weblog/weblog.html'
@@ -36,7 +33,7 @@ class EditWeBlog(UpdateView):
 class DeleteWeBlog(DeleteView):
     model = Post
     template_name = 'weblog/delete_weblog.html'
-    success_url = reverse_lazy('blog')
+    success_url = reverse_lazy('weblog')
     
 
 
