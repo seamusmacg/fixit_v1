@@ -15,6 +15,7 @@
                 class="text-info">Read full blog</a></p>
         <small class="font-italic text-info">Authored By: {{ post.author.first_name }} {{ post.author.last_name }}
             (Administrator Account)</small>
+        <small class="font-italic font-weight-bold text-info ">Category: {{ post.category }}</small>
         <div class="pt-2">
             {% if request.user.is_superuser %}
             <a class="btn btn-info" href="{% url 'edit-blog' post.pk %}" role="button">Edit</a>
