@@ -64,6 +64,12 @@
 |**Delete Button - Blog Detail Page** | Display Delete Blog page  | Yes | N/A |
 |**Update Button - Edit Blog Page** | Display Blog Detail page of edited blog | Yes | N/A |
 |**Delete Button - Delete Blog Page** | Display Blog page with deleted blog removed | Yes | N/A |
+|**Add Blog Category Link** | Take user to New Category page | Yes | N/A |
+|**Categories Link** | Take user to Categories page | Yes | N/A |
+|**Submit Button (New Category Page)** | Create Category and bring user to categories page | Yes | N/A |
+|**Categories Page Links** | Take user to category detail page | Yes | N/A |
+|**Delete Button (Category Details Page)** | Take user to Delete Category page | Yes | N/A |
+|**Delete Category Button (Delete Category Page)** | Delete Category and take user to Categories page | Yes | N/A |
 
 
 

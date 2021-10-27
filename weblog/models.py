@@ -5,21 +5,18 @@ from datetime import datetime, date
 
 
 class Category(models.Model):
-
     class Meta:
         verbose_name_plural = 'Categories'
-    
     name = models.CharField(max_length=255)
 
     def __str__(self):
         return self.name
-    
+
     def get_absolute_url(self):
-        return reverse('weblog')
+        return reverse('categories')
 
 
 class Post(models.Model):
-    
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()

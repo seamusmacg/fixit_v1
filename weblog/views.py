@@ -50,13 +50,12 @@ class AddCategory(CreateView):
 class CategoryDetail(DetailView):
     model = Category
     template_name = 'weblog/category_detail.html'
-    success_url = reverse_lazy('weblog')
 
 
 class DeleteCategory(DeleteView):
     model = Category
     template_name = 'weblog/delete_category.html'
-    success_url = reverse_lazy('weblog')
+    success_url = reverse_lazy('categories')
     
 
 
