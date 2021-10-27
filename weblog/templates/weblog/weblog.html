@@ -31,7 +31,7 @@
         <p class="text-justify">{{ post.body|truncatewords:100|safe }}<a href="{% url 'weblog-detail' post.pk %}"
                 class="text-info">Read full blog</a></p>
         <small class="font-italic text-info">Authored By: {{ post.author|title }} </small>
-        <small class="font-italic text-info font-weight-bold d-block">Category: {{ post.category }}</small>
+        <small class="font-italic text-info font-weight-bold d-block"><a href="">Category: {{ post.category }}</a></small>
         <div class="pt-2">
             {% if request.user.is_superuser %}
             <a class="btn btn-info" href="{% url 'edit-weblog' post.pk %}" role="button">Edit</a>

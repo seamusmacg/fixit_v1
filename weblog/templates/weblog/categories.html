@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Categories Section -->
+<section class="bg-light">
+    <div class="container">
+        <h1 class="text-center contact-heading">Categories</h1>
+        {% if object_list %}
+        <ul class="list-group"></ul>
+        {% for category in object_list %}
+        <li class="list-group-item text-center"><h3><a href="{% url 'category-detail' category.pk %}" class="contact-fields">{{ category.name }}</a></h3></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+        <br>
+        <h2 class="text-center pt-10">Sorry, there are no categories to display!</h2>
+        <br>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

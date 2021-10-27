@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Category Detail Section -->
+<section class="bg-light">
+    <div class="container">
+        <h1 class="text-center contact-heading">Category Details</h1>
+        <h2 class="pb-3">Category Name: {{ category.name }}</h2>
+        {% if request.user.is_superuser %}
+        <a class="btn btn-danger btn-lg" href="{% url 'delete-category' category.pk %}" role="button">Delete</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

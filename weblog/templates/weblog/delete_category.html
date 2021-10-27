@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+<!-- Delete Blog Section -->
+<section class="bg-light">
+    <div class="container">
+        <h1 class="text-left text-danger pt-5 pb-4">Delete Category</h1>
+        <h2>Delete - {{ category.name }}</h2>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="pt-3 pb-5">
+                <h3>Are you sure you want to delete category?</h3>
+                <br>
+                <h4 class="font-italic font-weight-bold">This can't be undone!</h4>
+                <br>
+                <button type="submit" class="btn btn-outline-danger btn-lg">Delete Category</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
