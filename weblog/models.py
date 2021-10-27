@@ -4,12 +4,24 @@ from django.urls import reverse
 from datetime import datetime, date
 
 
+class Category(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Categories'
+    
+    name = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+
+
 class Post(models.Model):
     
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
     created_date = models.DateField(auto_now_add=True)
+    category = models.ForeignKey('Category', null=True, blank=True, on_delete=models.SET_NULL)
    
     def __str__(self):
         return self.title + ' | ' + str(self.author)

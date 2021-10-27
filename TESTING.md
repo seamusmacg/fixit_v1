@@ -53,6 +53,17 @@
 |**Back To Home Link with Home Icon** | Take user to home page | Yes | N/A |
 |**Contact Send Button** | Submit form and return success page to user | Yes | N/A |
 |**Search Button** | Submit query and return products page with the products containing query string in product name or return an error message | Yes | N/A |
+|**Blog Navbar dropdown** | Display blog options - All Blogs, Write Blogs | Yes | N/A |
+|**All Blogs link** | Display a list of all the blogs | Yes | N/A |
+|**Blog Title link** | Display blog detail page | Yes | N/A |
+|**Edit Button - Blog Page** | Display Edit Blog page with editable form | Yes | N/A |
+|**Delete Button - Blog Page** | Display Delete Blog page  | Yes | N/A |
+|**Read Full Blog link** | Display blog detail page | Yes | N/A |
+|**Back Button - Blog Detail Page** | Return user to Blog page | Yes | N/A |
+|**Edit Button - Blog Detail Page** | Display Edit Blog page with editable form | Yes | N/A |
+|**Delete Button - Blog Detail Page** | Display Delete Blog page  | Yes | N/A |
+|**Update Button - Edit Blog Page** | Display Blog Detail page of edited blog | Yes | N/A |
+|**Delete Button - Delete Blog Page** | Display Blog page with deleted blog removed | Yes | N/A |
 
 
 
