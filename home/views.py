@@ -1,7 +1,6 @@
 from django.shortcuts import render
-from django.contrib import messages 
+from django.contrib import messages
 from django.views.decorators.clickjacking import xframe_options_exempt
-# Create your views here.
 
 
 @xframe_options_exempt
@@ -14,7 +13,7 @@ def index(request):
     Returns:
         HTML file: Index HTML file 
     """
-    
+
     return render(request, 'home/index.html')
 
 
@@ -33,10 +32,9 @@ def contact(request):
         email = request.POST['email']
         question = request.POST['question']
         if name == "" or email == "" or question == "":
-            messages.warning(request, "There is one or more empty fields - cannot be empty!")
+            messages.warning(
+                request, "There is one or more empty fields - cannot be empty!")
         else:
             return render(request, 'home/success.html')
 
-  
     return render(request, 'home/contact.html')
-

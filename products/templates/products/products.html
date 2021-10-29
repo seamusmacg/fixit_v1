@@ -34,24 +34,24 @@
             <ul class="dropdown-menu dropdown-menu-dark" role="menu" aria-labelledby="menu1">
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Price (Low to
                         high)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=desc">Price (High to
                         low)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=asc">Rating (Low to
                         high)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating&direction=desc">Rating (High to
                         low)</a></li>
                 <div class="dropdown-divider"></div>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=asc">Category
                         (A-Z)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=category&direction=desc">Category
                         (Z-A)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=asc">Name (A-Z)</a></li>
-                <div class="dropdown-divider"></div>
+                <hr>
                 <li><a class="dropdown-item" href="{% url 'products' %}?sort=name&direction=desc">Name (Z-A)</a>
                 </li>
             </ul>

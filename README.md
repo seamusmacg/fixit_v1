@@ -22,13 +22,14 @@
   * [Validation](#Validation)
   * [Manual Testing](#Manual-Testing)
 - [Major Bugs](#Major-Bugs)
+- [Database](#Database)
 - [Deployment](#Deployment)
 - [Credits](#Credits)
 
 ---
 
 ### Project Overview
-FixIt is an online DIY E-commerce website that provides a selection of different DIY/home products that can be ordered and delivered to the user's address. FixIt is a full stack web application that is built primarily using the Django web framework. (This site is for education purposes only - no real payments are processed by the site)
+FixIt is an online DIY E-commerce website that provides a selection of different DIY/home products that can be ordered and delivered to the user's address. FixIt is a full stack web application that is built primarily using the Django web framework and deployed using Heroku pages. The site contains a full user authentication system and blog application that allows user to create, edit and delete blogs/categories (This site is for education purposes only - no real payments are processed by the site).
 
 ## UX 
 
@@ -52,6 +53,7 @@ FixIt is an online DIY E-commerce website that provides a selection of different
 - Profile page - Profile page contains user's details in a form which can be updated. It also contains a table with the user's order history.
 - Authentication pages - login page for existing users and register page for new users. New users will receive a confirmation email when they register. 
 - Contact page - contains a contact form where users can submit messages to admin, users will receive confirmation page if form is sent successfully.
+- Blog pages - contains archive of blogs ordered by date, administrators can create new blogs with a title, body and category, administrators can create new categories as well. Both blogs and categories can be edited and deleted as well.
 - Possible Future Features - Interactive support, chat bot, user rating system and product reviews.
 
 ### Structure 
@@ -131,7 +133,12 @@ The application was built using [VS Code](https://code.visualstudio.com). Django
 
 ### Validation 
 
-- I validated the HTML source code using the [HTML Validation Service](https://validator.w3.org). Main errors: there were errors related to image tag attribute source. Image source was placed in CSS file as they were not properly rendering in src attribute.
+- I validated the HTML source code using the [HTML Validation Service](https://validator.w3.org). Main errors: 
+1. Error: Element img is missing required attribute src - Image source was placed in CSS file as they were not properly rendering in src attribute.
+2. Error: Element p not allowed as child of element span in this context - removed p element from span 
+3. Error: Element div not allowed as child of element ul in this context - removed div element containing class dropdown-divider and replaced it with hr element
+4. Error: Error: Duplicate ID navbarDropdown - numbered each id like navbarDropdown1 etc .. 
+5. Error: Error: Element li not allowed as child of element div in this context - removed extra unnecessary ul element closing tag
 - The CSS passed without any errors - [CSS Validation Service](https://jigsaw.w3.org/css-validator/)
 
 ### Manual Testing 
@@ -141,16 +148,39 @@ Testing was conducted on the finished application using Django in VS Code and wi
 ## Major Bugs
 - There was issues loading exported database to Heroku Postgres - fixed this by changing the encoding of JSON DB file to UTF-8
 - Bug "Value too long for type character varying(20)" - Fixed this by slicing the length of the order number to 10 characters in length in the Order Model. 
+- While trying to debug an error with the BlogPost model I deleted the blog table from the Postgres DB on Heroku - this prevented me from migrating the blog to Heroku. To fix this I deleted the Blog app and created a copy called Weblog and migrated that as a new app to Heroku. 
+
+## Database
+- On the local development environment a SQLite database was used. SQLite is a relational database management system contained in a C library. 
+- On the production environment (Heroku) a Postgres database was used. PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance.
+
+### Models
+The site consists of seven models in total: 
+- In **Products** app - the models are the **Products** and **Category** models which were used to display the products and respective categories to the user. The models are related by a foreign key field (Category)
+- In **Profiles** app - the model is **Profile** which is used to create a user  profile containing such information as name, address etc.  
+- In **Checkout** app - the models are the **Order** and **OrderItem** models which are used for gathering information about the user's order and for processing the order. The models are related by a foreign key field (Order)
+- In **Weblog** app - the models are the **Category** and **Post** models which are used for creating blog entries with an associated category. The models are related by a foreign key field (Category). The main CRUD functionality of the site is in the Weblog app with administrators able to create, delete and edit blogs/categories. 
+
+### DB Schema
+
+>-  Schema of the database
+
+!["DB Schema"](https://github.com/seamusmacg/fixit_v1/blob/master/mockups/db-schema.PNG)
+
 
 ## Deployment
 
 The application was deployed through Heroku pages as follows:
 
-1. Created a local repository on my local machine which included all the application files and directories. 
+1. Created a local repository (in Virtual Environment) on my local machine which included all the application files and directories. 
 2. Initialized the repository through VS Code Source Control 
 3. Created a repository on Github with same name. 
-4. Staged and committed all the files with appropriate messages.
-5. Manually deployed on Heroku
+4. Staged and committed all the files with appropriate messages. Github repository was connected to Heroku and automatic deploys enabled. 
+5. Manually deployed on Heroku. Heroku
+Products and Categories were created from admin panel rather than from fixtures file so in order to successfully deploy to Heroku:
+- Dumped data: python manage.py dumpdata > db.json
+- Load data: python manage.py loaddata db.json
+- Migrate DB to Heroku: heroku run python3 manage.py migrate
 5. In Deploy section on Heroku, I retrieved the [live URL](https://fix-it.herokuapp.com/).
 6. To run the project on your own machine: 
     - **Step 1**: Go to the repository - https://github.com/seamusmacg/fixit_v1
@@ -170,6 +200,7 @@ The application was deployed through Heroku pages as follows:
 - [CSS-Tricks](https://css-tricks.com/)
 - [Bootstrap](https://getbootstrap.com/)
 - [Udemy Django Course](https://www.udemy.com/course/python-django-2021-complete-course/) - Supplementary django course used for reference
+- [Codemy Django Blog Tutorial](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) - Tutorial on creating blog using Django
 - [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/) - Used this Code Institute tutorial as the guide and how to for my own project 
 - I would like to thank my mentor Adegbenga Adeye for all his guidance and help throughout the duration of this course
 - I would like to thank the all the people at the Code Institute for all their help and encouragement throughout this difficult but rewarding course. 

@@ -1,11 +1,14 @@
 from django import forms
-from  .models import Order
+from .models import Order
+
 
 class OrderForm(forms.ModelForm):
+    """OrderForm Class"""
     class Meta:
         model = Order
-        fields = ('name', 'email', 'phone', 'address', 'town', 'postcode', 'country',)
-        
+        fields = ('name', 'email', 'phone', 'address',
+                  'town', 'postcode', 'country',)
+
     def __init__(self, *args, **kwargs):
         """Placeholders and classes"""
         super().__init__(*args, **kwargs)
@@ -18,7 +21,7 @@ class OrderForm(forms.ModelForm):
             'town': 'Town or City',
             'address': 'Street Address',
         }
-            
+
         # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/eee6f2bc60385e58ab27b0732fba3e6a22a2c209/checkout/forms.py
 
         self.fields['name'].widget.attrs['autofocus'] = True

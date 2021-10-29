@@ -50,7 +50,7 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Fixit {% block extra_title %}{% endblock %}</title>
+    <title>FixIt {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -96,11 +96,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if '/blog/' in request.path %}active-link{% endif %}"
-                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Blog
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                             <a class="dropdown-item" href="{% url 'weblog' %}">All Blogs</a>
                             {% if request.user.is_superuser %}
                             <div class="dropdown-divider"></div>
@@ -114,11 +114,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if request.get_full_path == '/products/' %}active-link{% endif %}"
-                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Products
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
                             <a class="dropdown-item" href="{% url 'products' %}?sort=price&direction=asc">Sort by
                                 Price</a>
                             <div class="dropdown-divider"></div>
@@ -133,11 +133,11 @@
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle {% if request.get_full_path == '/products/?category=electrical' or request.get_full_path == '/products/?category=gardening' or request.get_full_path == '/products/?category=bathroom' or request.get_full_path == '/products/?category=tools'  %}active-link{% endif %}"
-                            href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             Departments
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                             <a class="dropdown-item" href="{% url 'products' %}?category=electrical">Electrical</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{% url 'products' %}?category=gardening">Gardening</a>

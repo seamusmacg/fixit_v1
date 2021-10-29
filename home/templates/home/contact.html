@@ -5,28 +5,28 @@
 {% block content %}
 <!-- Contact Form Section -->
 <section class="bg-light">
-<div class="container">
-    <h1 class="text-center contact-heading">Contact Us</h1>
+    <div class="container">
+        <h1 class="text-center contact-heading">Contact Us</h1>
 
-    <form action="{% url 'contact' %}" method="POST">
-        {% csrf_token %}
-        <div class="form-group contact-fields">
-            <label for="contactName">Name</label>
-            <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter name">
-        </div>
-        <div class="form-group contact-fields">
-            <label for="emailAddress">Email address</label>
-            <input type="email" class="form-control" id="emailAddress" name="email" aria-describedby="emailHelp"
-                placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                else.</small>
-        </div>
-        <div class="form-group contact-fields">
-            <label for="question">Question(s)</label>
-            <textarea class="form-control" id="question" name="question" rows="3"></textarea>
-        </div>
-        <button type="submit" class="btn btn-dark btn-lg">Send</button>
-    </form>
-</div>
+        <form action="{% url 'contact' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group contact-fields">
+                <label for="contactName">Name</label>
+                <input type="text" class="form-control" id="contactName" name="name" placeholder="Enter name">
+            </div>
+            <div class="form-group contact-fields">
+                <label for="emailAddress">Email address</label>
+                <input type="email" class="form-control" id="emailAddress" name="email" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                    else.</small>
+            </div>
+            <div class="form-group contact-fields">
+                <label for="question">Question(s)</label>
+                <textarea class="form-control" id="question" name="question" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-dark btn-lg">Send</button>
+        </form>
+    </div>
 </section>
 {% endblock %}

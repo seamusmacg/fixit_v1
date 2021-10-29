@@ -2,7 +2,6 @@ from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.contrib import messages
 from products.models import Product
 
-# Create your views here.
 
 def view_cart(request):
     """View that returns cart page
@@ -13,7 +12,7 @@ def view_cart(request):
     Returns:
         HTML file: cart HTML file 
     """
-    
+
     return render(request, 'cart/cart.html')
 
 
@@ -27,11 +26,11 @@ def add_cart(request, product_id):
     Returns:
         [GET request]: Redirects to current page
     """
-    
+
     product = Product.objects.get(pk=product_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    cart =  request.session.get('cart', {})
+    cart = request.session.get('cart', {})
 
     if product_id in list(cart.keys()):
         cart[product_id] += quantity
@@ -56,13 +55,14 @@ def remove_cart(request, product_id):
     """
 
     product = Product.objects.get(pk=product_id)
-    cart =  request.session.get('cart', {})
+    cart = request.session.get('cart', {})
 
     if product_id in cart:
         del cart[product_id]
         messages.success(request, f'{product.name} removed from your cart')
     else:
-        messages.error(request, f'Sorry there was an error removing that product')
+        messages.error(
+            request, f'Sorry there was an error removing that product')
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))

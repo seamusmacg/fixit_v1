@@ -1,10 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from .forms import ProfileForm
-
 from .models import Profile
 
-# Create your views here.
 
 def get_profile(request):
     """View that renders the user profile"""
@@ -14,7 +12,8 @@ def get_profile(request):
         form = ProfileForm(request.POST, instance=profile)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your profile has been successfully updated!')
+            messages.success(
+                request, 'Your profile has been successfully updated!')
     form = ProfileForm(instance=profile)
     orders = profile.orders.all()
     context = {

@@ -7,19 +7,20 @@
 <section class="bg-light">
     <div class="container">
         <h1 class="text-center contact-heading">{{ post.title }}</h1>
-       
-            <p class="text-justify">{{ post.body|safe }}</p>
-            {% if post.author.first_name|length > 0 %}
-            <small class="font-italic text-info">Authored By: {{ post.author.first_name }}
-                {{ post.author.last_name }} (Administrator Account)</small>
-            <small class="font-italic text-info">Date: {{ post.created_date }}</small>
-            {% else %}
-            <small class="font-italic font-weight-bold text-info">Authored By: {{ post.author|title }}</small>
-            <small class="font-italic text-info d-block">Date: {{ post.created_date }}</small>
-            {% endif %}
-     
+
+        <p class="text-justify">{{ post.body|safe }}</p>
+        {% if post.author.first_name|length > 0 %}
+        <small class="font-italic text-info">Authored By: {{ post.author.first_name }}
+            {{ post.author.last_name }} (Administrator Account)</small>
+        <small class="font-italic text-info">Date: {{ post.created_date }}</small>
+        {% else %}
+        <small class="font-italic font-weight-bold text-info">Authored By: {{ post.author|title }}</small>
+        <small class="font-italic text-info d-block">Date: {{ post.created_date }}</small>
+        {% endif %}
+
         <div class="pt-3 pb-5">
-            <a class="btn btn-dark" href="{% url 'weblog' %}" role="button"><i class="fas fa-arrow-left pr-1"></i>Back</a>
+            <a class="btn btn-dark" href="{% url 'weblog' %}" role="button"><i
+                    class="fas fa-arrow-left pr-1"></i>Back</a>
             {% if request.user.is_superuser %}
             <a class="btn btn-info" href="{% url 'edit-weblog' post.pk %}" role="button">Edit</a>
             <a class="btn btn-danger" href="{% url 'delete-weblog' post.pk %}" role="button">Delete</a>

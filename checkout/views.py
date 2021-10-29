@@ -7,11 +7,10 @@ from profiles.models import Profile
 from .models import Order, OrderItem
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
-
 from .forms import OrderForm
 from cart.contexts import cart_contents
-
 import stripe
+
 
 def view_checkout(request):
     """View that renders the checkout page"""
@@ -42,7 +41,8 @@ def view_checkout(request):
                 order_item.save()
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, "There's an error with the form! Please check if details are correct")
+            messages.error(
+                request, "There's an error with the form! Please check if details are correct")
     else:
         cart = request.session.get('cart', {})
         if not cart:
@@ -56,30 +56,30 @@ def view_checkout(request):
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
-            )
+        )
         order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'You are missing the Stripe public key.')
 
-
     context = {
-             'order_form': order_form, 
-             'stripe_public_key': stripe_public_key,
-             'client_secret': intent.client_secret,
-         }
-         
+        'order_form': order_form,
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    }
+
     return render(request, 'checkout/checkout.html', context)
 
 
 def checkout_success(request, order_number):
     """View that renders the checkout success page"""
     order = get_object_or_404(Order, order_number=order_number)
-    messages.success(request, f'Order was processed successfully! Your order number is {order_number}, an email will be sent to {order.email}')
+    messages.success(
+        request, f'Order was processed successfully! Your order number is {order_number}, an email will be sent to {order.email}')
 
     if request.user.is_authenticated:
         profile = Profile.objects.get(user=request.user)
-        order.user_profile = profile 
+        order.user_profile = profile
         order.save()
 
         profile_info = {
@@ -97,7 +97,7 @@ def checkout_success(request, order_number):
     if 'cart' in request.session:
         del request.session['cart']
     context = {
-        'order': order, 
+        'order': order,
         'delivery_cost': order.delivery_cost,
         'order_total': order.order_total,
         'billing_cost': order.overall_cost,
@@ -110,6 +110,7 @@ def checkout_success(request, order_number):
 
 
 def send_confirmation_email(order):
+    """Sends confirmation email"""
     email_confirmation = order.email
 
     subject = render_to_string(
@@ -127,9 +128,3 @@ def send_confirmation_email(order):
         settings.DEFAULT_FROM_EMAIL,
         [email_confirmation]
     )
-
-
-
-
-
-

@@ -1,11 +1,13 @@
 from django import forms
-from  .models import Profile
+from .models import Profile
+
 
 class ProfileForm(forms.ModelForm):
+    """ProfileForm class"""
     class Meta:
         model = Profile
         exclude = ('user',)
-        
+
     def __init__(self, *args, **kwargs):
         """Placeholders and classes"""
         super().__init__(*args, **kwargs)
@@ -16,7 +18,7 @@ class ProfileForm(forms.ModelForm):
             'default_town': 'Town or City',
             'default_address': 'Street Address',
         }
-        
+
         # https://github.com/Code-Institute-Solutions/boutique_ado_v1/blob/eee6f2bc60385e58ab27b0732fba3e6a22a2c209/checkout/forms.py
 
         self.fields['default_phone'].widget.attrs['autofocus'] = True
@@ -29,4 +31,3 @@ class ProfileForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'border-black profile-form-input'
             self.fields[field].label = False
-

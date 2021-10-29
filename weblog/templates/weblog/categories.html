@@ -8,10 +8,13 @@
     <div class="container">
         <h1 class="text-center contact-heading">Categories</h1>
         {% if object_list %}
-        <ul class="list-group"></ul>
-        {% for category in object_list %}
-        <li class="list-group-item text-center"><h3><a href="{% url 'category-detail' category.pk %}" class="contact-fields">{{ category.name }}</a></h3></li>
-        {% endfor %}
+        <ul class="list-group">
+            {% for category in object_list %}
+            <li class="list-group-item text-center">
+                <h3><a href="{% url 'category-detail' category.pk %}" class="contact-fields">{{ category.name }}</a>
+                </h3>
+            </li>
+            {% endfor %}
         </ul>
         {% else %}
         <br>

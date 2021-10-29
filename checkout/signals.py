@@ -15,5 +15,3 @@ def save_update(sender, instance, created, **kwargs):
 def delete_update(sender, instance, **kwargs):
     """Update the order when delete"""
     instance.order.modify_total()
-
-
