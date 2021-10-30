@@ -201,6 +201,10 @@ Products and Categories were created from admin panel rather than from fixtures 
 - [Bootstrap](https://getbootstrap.com/)
 - [Udemy Django Course](https://www.udemy.com/course/python-django-2021-complete-course/) - Supplementary django course used for reference
 - [Codemy Django Blog Tutorial](https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi) - Tutorial on creating blog using Django
+- [First Blog Article](https://www.amfam.com/resources/articles/support-for-your-dream/why-diy-5-reasons-to-tackle-that-project) - Used text in blog titled "Why DIY? 5 Reasons to Tackle That Project" 
+- [Second Blog Article](https://www.familyhandyman.com/project/how-to-fix-a-clogged-toilet/) - Used text in blog titled "How To Use a Plunger" 
+- [Third Blog Article](https://www.aircoservice.com/2019/07/11/10-electrical-safety-tips-every-home-owner-should-know-airco-service/) - Used text in blog titled "10 Electrical Safety Tips" 
+- [Fourth Blog Article](https://digthisdesign.net/diy-design/want-become-diy-expert-6-stratagies-success/) - Used text in blog titled "How to Become a DIY Expert" 
 - [Boutique Ado](https://github.com/Code-Institute-Solutions/boutique_ado_v1/) - Used this Code Institute tutorial as the guide and how to for my own project 
 - I would like to thank my mentor Adegbenga Adeye for all his guidance and help throughout the duration of this course
 - I would like to thank the all the people at the Code Institute for all their help and encouragement throughout this difficult but rewarding course. 

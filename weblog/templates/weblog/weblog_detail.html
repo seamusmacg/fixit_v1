@@ -13,9 +13,13 @@
         <small class="font-italic text-info">Authored By: {{ post.author.first_name }}
             {{ post.author.last_name }} (Administrator Account)</small>
         <small class="font-italic text-info">Date: {{ post.created_date }}</small>
+        <small class="font-italic text-info font-weight-bold d-block">Category:
+            {{ post.category }}</small>
         {% else %}
         <small class="font-italic font-weight-bold text-info">Authored By: {{ post.author|title }}</small>
         <small class="font-italic text-info d-block">Date: {{ post.created_date }}</small>
+        <small class="font-italic text-info font-weight-bold d-block">Category:
+            {{ post.category }}</small>
         {% endif %}
 
         <div class="pt-3 pb-5">
