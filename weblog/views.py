@@ -32,6 +32,7 @@ class AddWeBlog(AdminStaffOnly, CreateView):
     model = Post
     template_name = 'weblog/write_weblog.html'
     fields = '__all__'
+    success_url = reverse_lazy('weblog')
 
 
 class EditWeBlog(AdminStaffOnly, UpdateView):
@@ -39,6 +40,7 @@ class EditWeBlog(AdminStaffOnly, UpdateView):
     model = Post
     template_name = 'weblog/edit_weblog.html'
     fields = '__all__'
+    success_url = reverse_lazy('weblog')
 
 
 class DeleteWeBlog(AdminStaffOnly, DeleteView):
